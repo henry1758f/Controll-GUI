@@ -47,6 +47,7 @@ Partial Class Form1
         Me.ComboBox_Stopbits = New System.Windows.Forms.ComboBox()
         Me.ComboBox_Databit = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button_Conect = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -266,6 +267,7 @@ Partial Class Form1
         '
         'ComboBox_Databit
         '
+        Me.ComboBox_Databit.Enabled = False
         Me.ComboBox_Databit.FormattingEnabled = True
         Me.ComboBox_Databit.Location = New System.Drawing.Point(20, 287)
         Me.ComboBox_Databit.Name = "ComboBox_Databit"
@@ -274,6 +276,7 @@ Partial Class Form1
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button_Conect)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.Label3)
@@ -290,6 +293,15 @@ Partial Class Form1
         Me.GroupBox3.TabIndex = 21
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "UART設定"
+        '
+        'Button_Conect
+        '
+        Me.Button_Conect.Location = New System.Drawing.Point(23, 323)
+        Me.Button_Conect.Name = "Button_Conect"
+        Me.Button_Conect.Size = New System.Drawing.Size(118, 35)
+        Me.Button_Conect.TabIndex = 26
+        Me.Button_Conect.Text = "連線"
+        Me.Button_Conect.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -392,4 +404,5 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button_Conect As Button
 End Class
