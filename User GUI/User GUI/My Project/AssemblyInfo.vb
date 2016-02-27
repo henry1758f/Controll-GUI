@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' 檢閱組件屬性的值
 
-<Assembly: AssemblyTitle("Controll GUI")>
+<Assembly: AssemblyTitle("User GUI")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("Controll GUI")>
-<Assembly: AssemblyCopyright("Copyright ©  2015")>
+<Assembly: AssemblyProduct("User GUI")>
+<Assembly: AssemblyCopyright("Copyright ©  2016")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 '下列 GUID 為專案公開 (Expose) 至 COM 時所要使用的 typelib ID
-<Assembly: Guid("61f43355-5b23-4e64-8f13-9cb7f1db6fcf")>
+<Assembly: Guid("1720eff6-a9a7-451e-af79-cd8486c8116b")>
 
 ' 組件的版本資訊由下列四個值所組成: 
 '

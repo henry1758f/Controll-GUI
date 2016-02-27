@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{02A9E3D1-F9DA-40ED-A1E1-067305D8BBE6}</ProjectGuid>
+    <ProjectGuid>{725AF5EC-B15F-43F6-98F2-AC3C8CF59AEC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Controll_GUI.My.MyApplication</StartupObject>
-    <RootNamespace>Controll_GUI</RootNamespace>
-    <AssemblyName>Controll GUI</AssemblyName>
+    <StartupObject>User_GUI.My.MyApplication</StartupObject>
+    <RootNamespace>User_GUI</RootNamespace>
+    <AssemblyName>User GUI</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -21,7 +21,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Controll GUI.xml</DocumentationFile>
+    <DocumentationFile>User GUI.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -31,7 +31,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Controll GUI.xml</DocumentationFile>
+    <DocumentationFile>User GUI.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
