@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.設定ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,7 +41,27 @@ Partial Class Form1
         Me.GroupBox_ControlPanel = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LabelNOW = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.RichTextBox_Message = New System.Windows.Forms.RichTextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Button_Connect = New System.Windows.Forms.Button()
@@ -50,14 +71,19 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox_BaudSelect = New System.Windows.Forms.ComboBox()
         Me.ComboBox_PortSelect = New System.Windows.Forms.ComboBox()
-        Me.LabelNOW = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.Button_VideoSet = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox_ControlPanel.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SerialPort1
@@ -70,7 +96,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.設定ToolStripMenuItem, Me.說明ToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1047, 27)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1299, 27)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -96,9 +122,9 @@ Partial Class Form1
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 454)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 770)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1047, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1299, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -111,7 +137,7 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.Button_GoBackward)
         Me.Panel1.Controls.Add(Me.Button_GoRight)
         Me.Panel1.Controls.Add(Me.Button_Goforward)
-        Me.Panel1.Location = New System.Drawing.Point(38, 24)
+        Me.Panel1.Location = New System.Drawing.Point(6, 24)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(239, 171)
         Me.Panel1.TabIndex = 3
@@ -183,9 +209,9 @@ Partial Class Form1
         '
         Me.GroupBox_ControlPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.GroupBox_ControlPanel.Controls.Add(Me.GroupBox1)
-        Me.GroupBox_ControlPanel.Location = New System.Drawing.Point(281, 30)
+        Me.GroupBox_ControlPanel.Location = New System.Drawing.Point(226, 30)
         Me.GroupBox_ControlPanel.Name = "GroupBox_ControlPanel"
-        Me.GroupBox_ControlPanel.Size = New System.Drawing.Size(397, 414)
+        Me.GroupBox_ControlPanel.Size = New System.Drawing.Size(300, 248)
         Me.GroupBox_ControlPanel.TabIndex = 4
         Me.GroupBox_ControlPanel.TabStop = False
         Me.GroupBox_ControlPanel.Text = "Control Panel"
@@ -195,43 +221,233 @@ Partial Class Form1
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.GroupBox1.Controls.Add(Me.Panel1)
         Me.GroupBox1.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 36)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 24)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(360, 239)
+        Me.GroupBox1.Size = New System.Drawing.Size(261, 209)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Vehicle"
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.LabelNOW)
-        Me.GroupBox2.Location = New System.Drawing.Point(684, 30)
+        Me.GroupBox2.Controls.Add(Me.WebBrowser1)
+        Me.GroupBox2.Controls.Add(Me.GroupBox6)
+        Me.GroupBox2.Controls.Add(Me.GroupBox5)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 284)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(351, 190)
+        Me.GroupBox2.Size = New System.Drawing.Size(514, 483)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Data"
         '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.Label13)
+        Me.GroupBox6.Controls.Add(Me.Label12)
+        Me.GroupBox6.Controls.Add(Me.Label11)
+        Me.GroupBox6.Controls.Add(Me.TextBox4)
+        Me.GroupBox6.Controls.Add(Me.TextBox5)
+        Me.GroupBox6.Controls.Add(Me.TextBox6)
+        Me.GroupBox6.Controls.Add(Me.Label8)
+        Me.GroupBox6.Controls.Add(Me.Label9)
+        Me.GroupBox6.Controls.Add(Me.Label10)
+        Me.GroupBox6.Location = New System.Drawing.Point(206, 20)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(291, 100)
+        Me.GroupBox6.TabIndex = 8
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Location"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("微軟正黑體", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label13.Location = New System.Drawing.Point(258, 47)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(17, 18)
+        Me.Label13.TabIndex = 10
+        Me.Label13.Text = "o"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("微軟正黑體", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label12.Location = New System.Drawing.Point(188, 16)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(45, 42)
+        Me.Label12.TabIndex = 9
+        Me.Label12.Text = "N"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("微軟正黑體", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label11.Location = New System.Drawing.Point(188, 56)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(78, 42)
+        Me.Label11.TabIndex = 8
+        Me.Label11.Text = "000"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(79, 73)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(103, 25)
+        Me.TextBox4.TabIndex = 7
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(79, 46)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(103, 25)
+        Me.TextBox5.TabIndex = 6
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(79, 18)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(103, 25)
+        Me.TextBox6.TabIndex = 5
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 56)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(62, 15)
+        Me.Label8.TabIndex = 4
+        Me.Label8.Text = "Lontitude"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(32, 81)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(37, 15)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "ffffff"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(19, 28)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(54, 15)
+        Me.Label10.TabIndex = 2
+        Me.Label10.Text = "Latitude"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.TextBox3)
+        Me.GroupBox5.Controls.Add(Me.TextBox2)
+        Me.GroupBox5.Controls.Add(Me.TextBox1)
+        Me.GroupBox5.Controls.Add(Me.Label7)
+        Me.GroupBox5.Controls.Add(Me.Label6)
+        Me.GroupBox5.Controls.Add(Me.Label5)
+        Me.GroupBox5.Location = New System.Drawing.Point(12, 20)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(188, 100)
+        Me.GroupBox5.TabIndex = 3
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Tempurature"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(116, 73)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(42, 25)
+        Me.TextBox3.TabIndex = 7
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(116, 46)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(42, 25)
+        Me.TextBox2.TabIndex = 6
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(116, 18)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(42, 25)
+        Me.TextBox1.TabIndex = 5
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 56)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(104, 15)
+        Me.Label7.TabIndex = 4
+        Me.Label7.Text = "Inside of Vehicle"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(32, 81)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(78, 15)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "Out of Buoy"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(19, 28)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(91, 15)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "Out of Vehicle"
+        '
+        'LabelNOW
+        '
+        Me.LabelNOW.AutoSize = True
+        Me.LabelNOW.Location = New System.Drawing.Point(106, 156)
+        Me.LabelNOW.Name = "LabelNOW"
+        Me.LabelNOW.Size = New System.Drawing.Size(0, 15)
+        Me.LabelNOW.TabIndex = 0
+        '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.RichTextBox1)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.LabelNOW)
         Me.GroupBox3.Controls.Add(Me.RichTextBox_Message)
-        Me.GroupBox3.Location = New System.Drawing.Point(684, 226)
+        Me.GroupBox3.Location = New System.Drawing.Point(597, 564)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(351, 218)
+        Me.GroupBox3.Size = New System.Drawing.Size(503, 179)
         Me.GroupBox3.TabIndex = 6
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Message"
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(263, 24)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(234, 129)
+        Me.RichTextBox1.TabIndex = 2
+        Me.RichTextBox1.Text = ""
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(9, 156)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(91, 15)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "NOW DATA :"
         '
         'RichTextBox_Message
         '
         Me.RichTextBox_Message.Location = New System.Drawing.Point(12, 24)
         Me.RichTextBox_Message.Name = "RichTextBox_Message"
-        Me.RichTextBox_Message.Size = New System.Drawing.Size(339, 188)
+        Me.RichTextBox_Message.Size = New System.Drawing.Size(245, 129)
         Me.RichTextBox_Message.TabIndex = 0
         Me.RichTextBox_Message.Text = ""
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Button_VideoSet)
         Me.GroupBox4.Controls.Add(Me.Button_Connect)
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Controls.Add(Me.ComboBox_Mode)
@@ -241,7 +457,7 @@ Partial Class Form1
         Me.GroupBox4.Controls.Add(Me.ComboBox_PortSelect)
         Me.GroupBox4.Location = New System.Drawing.Point(12, 30)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(208, 408)
+        Me.GroupBox4.Size = New System.Drawing.Size(208, 248)
         Me.GroupBox4.TabIndex = 7
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Setting and Configuration"
@@ -306,39 +522,70 @@ Partial Class Form1
         Me.ComboBox_PortSelect.Size = New System.Drawing.Size(121, 23)
         Me.ComboBox_PortSelect.TabIndex = 0
         '
-        'LabelNOW
+        'PictureBox1
         '
-        Me.LabelNOW.AutoSize = True
-        Me.LabelNOW.Location = New System.Drawing.Point(46, 25)
-        Me.LabelNOW.Name = "LabelNOW"
-        Me.LabelNOW.Size = New System.Drawing.Size(46, 15)
-        Me.LabelNOW.TabIndex = 0
-        Me.LabelNOW.Text = "Label4"
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.PictureBox1.Location = New System.Drawing.Point(532, 31)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(720, 480)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
+        '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Location = New System.Drawing.Point(12, 126)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(496, 351)
+        Me.WebBrowser1.TabIndex = 9
+        Me.WebBrowser1.Url = New System.Uri("D:\EE501\Controll GUI\User GUI\map.html", System.UriKind.Absolute)
+        '
+        'Button_VideoSet
+        '
+        Me.Button_VideoSet.Location = New System.Drawing.Point(60, 181)
+        Me.Button_VideoSet.Name = "Button_VideoSet"
+        Me.Button_VideoSet.Size = New System.Drawing.Size(75, 23)
+        Me.Button_VideoSet.TabIndex = 7
+        Me.Button_VideoSet.Text = "Video Set"
+        Me.Button_VideoSet.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1047, 476)
+        Me.AutoScroll = True
+        Me.AutoSize = True
+        Me.ClientSize = New System.Drawing.Size(1299, 792)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox_ControlPanel)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SCH01 - v0.1.0"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox_ControlPanel.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -372,4 +619,26 @@ Partial Class Form1
     Friend WithEvents ComboBox_Mode As ComboBox
     Friend WithEvents Button_Connect As Button
     Friend WithEvents LabelNOW As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents WebBrowser1 As WebBrowser
+    Friend WithEvents Button_VideoSet As Button
 End Class

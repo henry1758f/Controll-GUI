@@ -2,6 +2,9 @@
 Imports System.Threading
 Imports System.IO
 Imports System.ComponentModel
+Imports AForge
+Imports AForge.Video
+Imports AForge.Video.DirectShow
 
 Public Class Form1
     Dim myport As Array
@@ -10,6 +13,9 @@ Public Class Form1
     Dim DataNow As String
     Dim ConnectStatus As Boolean
     Private MaybeEnd As Boolean
+
+    Dim CAMERA As VideoCaptureDevice    'Video Camera
+    Dim bmp As Bitmap
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         myport = IO.Ports.SerialPort.GetPortNames()
@@ -41,8 +47,6 @@ Public Class Form1
                 MsgBox("ERROR!" + vbCrLf + ex.Message, MsgBoxStyle.Information, "Error!")
             End Try
         Else
-            'myport = IO.Ports.SerialPort.GetPortNames()
-            'ComboBox_PortSelect.Items.AddRange(myport)
             Try
                 ConnectStatus = False
                 SerialPort1.Close()
@@ -54,7 +58,7 @@ Public Class Form1
                 Button_Connect.Text = "Connect"
 
             Catch ex As Exception
-                MsgBox("ERROR!" + vbCrLf + ex.Message, MsgBoxStyle.Information, "Error!")
+                MsgBox("CAUTION!" + vbCrLf + ex.Message, MsgBoxStyle.Information, "CAUTION!")
                 ConnectStatus = False
                 ComboBox_PortSelect.Enabled = True
                 ComboBox_BaudSelect.Enabled = True
@@ -98,5 +102,26 @@ Public Class Form1
             End If
         End If
 
+    End Sub
+
+    Private Sub Button_VideoSet_Click(sender As Object, e As EventArgs) Handles Button_VideoSet.Click
+        Dim Camera1 As VideoCaptureDeviceForm = New VideoCaptureDeviceForm
+        If Camera1.ShowDialog() = DialogResult.OK Then
+            CAMERA = Camera1.VideoDevice
+            AddHandler CAMERA.NewFrame, New NewFrameEventHandler(AddressOf Captured)
+            CAMERA.Start()
+        End If
+    End Sub
+    Private Sub Captured(sender As Object, eventArgs As NewFrameEventArgs)
+        bmp = DirectCast(eventArgs.Frame.Clone(), Bitmap)
+        PictureBox1.Image = DirectCast(eventArgs.Frame.Clone(), Bitmap)
+    End Sub
+
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Try
+            CAMERA.Stop()
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
