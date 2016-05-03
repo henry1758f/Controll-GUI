@@ -64,6 +64,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.RichTextBox_Message = New System.Windows.Forms.RichTextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Button_VideoSet = New System.Windows.Forms.Button()
         Me.Button_Connect = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox_Mode = New System.Windows.Forms.ComboBox()
@@ -72,8 +73,7 @@ Partial Class Form1
         Me.ComboBox_BaudSelect = New System.Windows.Forms.ComboBox()
         Me.ComboBox_PortSelect = New System.Windows.Forms.ComboBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
-        Me.Button_VideoSet = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox_ControlPanel.SuspendLayout()
@@ -84,6 +84,7 @@ Partial Class Form1
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SerialPort1
@@ -96,7 +97,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.設定ToolStripMenuItem, Me.說明ToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1299, 27)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1334, 27)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -122,9 +123,9 @@ Partial Class Form1
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 770)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 780)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1299, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1334, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -230,7 +231,7 @@ Partial Class Form1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.WebBrowser1)
+        Me.GroupBox2.Controls.Add(Me.PictureBox2)
         Me.GroupBox2.Controls.Add(Me.GroupBox6)
         Me.GroupBox2.Controls.Add(Me.GroupBox5)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 284)
@@ -413,7 +414,7 @@ Partial Class Form1
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.LabelNOW)
         Me.GroupBox3.Controls.Add(Me.RichTextBox_Message)
-        Me.GroupBox3.Location = New System.Drawing.Point(597, 564)
+        Me.GroupBox3.Location = New System.Drawing.Point(532, 588)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(503, 179)
         Me.GroupBox3.TabIndex = 6
@@ -461,6 +462,15 @@ Partial Class Form1
         Me.GroupBox4.TabIndex = 7
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Setting and Configuration"
+        '
+        'Button_VideoSet
+        '
+        Me.Button_VideoSet.Location = New System.Drawing.Point(60, 181)
+        Me.Button_VideoSet.Name = "Button_VideoSet"
+        Me.Button_VideoSet.Size = New System.Drawing.Size(75, 23)
+        Me.Button_VideoSet.TabIndex = 7
+        Me.Button_VideoSet.Text = "Video Set"
+        Me.Button_VideoSet.UseVisualStyleBackColor = True
         '
         'Button_Connect
         '
@@ -528,28 +538,20 @@ Partial Class Form1
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Default
         Me.PictureBox1.Location = New System.Drawing.Point(532, 31)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(720, 480)
+        Me.PictureBox1.Size = New System.Drawing.Size(789, 556)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
-        'WebBrowser1
+        'PictureBox2
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(12, 126)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(496, 351)
-        Me.WebBrowser1.TabIndex = 9
-        Me.WebBrowser1.Url = New System.Uri("D:\EE501\Controll GUI\User GUI\map.html", System.UriKind.Absolute)
-        '
-        'Button_VideoSet
-        '
-        Me.Button_VideoSet.Location = New System.Drawing.Point(60, 181)
-        Me.Button_VideoSet.Name = "Button_VideoSet"
-        Me.Button_VideoSet.Size = New System.Drawing.Size(75, 23)
-        Me.Button_VideoSet.TabIndex = 7
-        Me.Button_VideoSet.Text = "Video Set"
-        Me.Button_VideoSet.UseVisualStyleBackColor = True
+        Me.PictureBox2.Image = Global.User_GUI.My.Resources.Resources.map
+        Me.PictureBox2.Location = New System.Drawing.Point(12, 127)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(496, 350)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 9
+        Me.PictureBox2.TabStop = False
         '
         'Form1
         '
@@ -557,7 +559,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(1299, 792)
+        Me.ClientSize = New System.Drawing.Size(1334, 802)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -569,7 +571,7 @@ Partial Class Form1
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "SCH01 - v0.1.0"
+        Me.Text = "SCH01 - v0.1.1"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -586,6 +588,7 @@ Partial Class Form1
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -639,6 +642,6 @@ Partial Class Form1
     Friend WithEvents Label13 As Label
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents Button_VideoSet As Button
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
