@@ -30,6 +30,10 @@ Public Class Form1
         ComboBox_BaudSelect.Items.Add("57600")
         ComboBox_BaudSelect.Items.Add("76800")
         ComboBox_BaudSelect.Items.Add("115200")
+        PictureBox3.BackgroundImage = PictureBox2.Image
+
+        'MakeTransparent()
+
     End Sub
 
     Private Sub Button_Connect_Click(sender As Object, e As EventArgs) Handles Button_Connect.Click
