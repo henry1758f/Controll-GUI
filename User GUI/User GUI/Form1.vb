@@ -31,12 +31,12 @@ Public Class Form1
         ComboBox_BaudSelect.Items.Add("76800")
         ComboBox_BaudSelect.Items.Add("115200")
         PictureBox3.BackgroundImage = PictureBox2.Image
-
         'MakeTransparent()
 
     End Sub
 
     Private Sub Button_Connect_Click(sender As Object, e As EventArgs) Handles Button_Connect.Click
+
         If ConnectStatus = False Then
             Try
                 SerialPort1.PortName = ComboBox_PortSelect.Text
@@ -127,5 +127,13 @@ Public Class Form1
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub PictureBox2_Paint(sender As Object, e As PaintEventArgs) Handles PictureBox2.Paint
+        'PictureBox3.BackgroundImage = PictureBox2.Image
+    End Sub
+
+    Private Sub PictureBox2_LoadCompleted(sender As Object, e As AsyncCompletedEventArgs) Handles PictureBox2.LoadCompleted
+        PictureBox3.BackgroundImage = PictureBox2.Image
     End Sub
 End Class
