@@ -69,5 +69,25 @@ Namespace My.Resources
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
+        
+        '''<summary>
+        '''  查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        '''</summary>
+        Friend ReadOnly Property 光源圖示_亮() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("光源圖示_亮", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        '''</summary>
+        Friend ReadOnly Property 光源圖示_暗() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("光源圖示_暗", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
     End Module
 End Namespace

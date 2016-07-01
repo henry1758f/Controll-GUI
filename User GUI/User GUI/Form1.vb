@@ -11,8 +11,9 @@ Public Class Form1
     Delegate Sub Settextcallback(ByVal [test] As String)
     Dim DataFlow As String
     Dim DataNow As String
-    Dim ConnectStatus As Boolean
-    Private MaybeEnd As Boolean
+    Dim ConnectStatus As Boolean        'SerialPort1 Connect status 1:connected; 2:disconnected
+    Private MaybeEnd As Boolean         'The data flow string mabye end
+    Dim VLight As Boolean               'The lights on vehicle
 
     Dim CAMERA As VideoCaptureDevice    'Video Camera
     Dim bmp As Bitmap
@@ -124,6 +125,7 @@ Public Class Form1
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
             CAMERA.Stop()
+            SerialPort1.Close()
         Catch ex As Exception
 
         End Try
@@ -157,5 +159,135 @@ Public Class Form1
 
     Private Sub TextBox_MapZoom_TextChanged(sender As Object, e As EventArgs) Handles TextBox_MapZoom.TextChanged
         PictureBox2.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=" + TextBox_Latitude.Text + "," + TextBox_Lontitude.Text + "&zoom=" + TextBox_MapZoom.Text + "&size=511x396&key=AIzaSyBDNQ2wZ3Lt73qKvn6lfzztrsc_X7ixBdM"
+    End Sub
+
+    Private Sub Button_Goforward_Click(sender As Object, e As EventArgs) Handles Button_Goforward.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("A")
+                Button_Goforward.ForeColor = Color.White        ''
+                Button_Goforward.BackColor = Color.DarkRed      ''
+                Button_GoBackward.ForeColor = Color.Black
+                Button_GoBackward.BackColor = DefaultBackColor
+                Button_GoLeft.ForeColor = Color.Black
+                Button_GoLeft.BackColor = DefaultBackColor
+                Button_GoRight.ForeColor = Color.Black
+                Button_GoRight.BackColor = DefaultBackColor
+                Button_STOP.ForeColor = Color.Black
+                Button_STOP.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+
+        End If
+    End Sub
+
+    Private Sub Button_STOP_Click(sender As Object, e As EventArgs) Handles Button_STOP.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("E")
+                Button_Goforward.ForeColor = Color.Black
+                Button_Goforward.BackColor = DefaultBackColor
+                Button_GoBackward.ForeColor = Color.Black
+                Button_GoBackward.BackColor = DefaultBackColor
+                Button_GoLeft.ForeColor = Color.Black
+                Button_GoLeft.BackColor = DefaultBackColor
+                Button_GoRight.ForeColor = Color.Black
+                Button_GoRight.BackColor = DefaultBackColor
+                Button_STOP.ForeColor = Color.White             ''
+                Button_STOP.BackColor = Color.DarkRed           ''
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+
+        End If
+    End Sub
+
+    Private Sub Button_GoRight_Click(sender As Object, e As EventArgs) Handles Button_GoRight.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("B")
+                Button_Goforward.ForeColor = Color.Black
+                Button_Goforward.BackColor = DefaultBackColor
+                Button_GoBackward.ForeColor = Color.Black
+                Button_GoBackward.BackColor = DefaultBackColor
+                Button_GoLeft.ForeColor = Color.Black
+                Button_GoLeft.BackColor = DefaultBackColor
+                Button_GoRight.ForeColor = Color.White          ''
+                Button_GoRight.BackColor = Color.DarkRed        ''
+                Button_STOP.ForeColor = Color.Black
+                Button_STOP.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+
+        End If
+    End Sub
+
+    Private Sub Button_GoLeft_Click(sender As Object, e As EventArgs) Handles Button_GoLeft.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("C")
+                Button_Goforward.ForeColor = Color.Black
+                Button_Goforward.BackColor = DefaultBackColor
+                Button_GoBackward.ForeColor = Color.Black
+                Button_GoBackward.BackColor = DefaultBackColor
+                Button_GoLeft.ForeColor = Color.White           ''
+                Button_GoLeft.BackColor = Color.DarkRed         ''
+                Button_GoRight.ForeColor = Color.Black
+                Button_GoRight.BackColor = DefaultBackColor
+                Button_STOP.ForeColor = Color.Black
+                Button_STOP.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+
+        End If
+    End Sub
+
+    Private Sub Button_GoBackward_Click(sender As Object, e As EventArgs) Handles Button_GoBackward.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("D")
+                Button_Goforward.ForeColor = Color.Black
+                Button_Goforward.BackColor = DefaultBackColor
+                Button_GoBackward.ForeColor = Color.White           ''
+                Button_GoBackward.BackColor = Color.DarkRed         ''
+                Button_GoLeft.ForeColor = Color.Black
+                Button_GoLeft.BackColor = DefaultBackColor
+                Button_GoRight.ForeColor = Color.Black
+                Button_GoRight.BackColor = DefaultBackColor
+                Button_STOP.ForeColor = Color.Black
+                Button_STOP.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+
+        End If
+    End Sub
+
+    Private Sub Button_VLight_Click(sender As Object, e As EventArgs) Handles Button_VLight.Click
+        If ConnectStatus Then
+            Try
+                If VLight Then
+                    SerialPort1.Write("G")
+                    VLight = False
+                    Button_VLight.BackgroundImage = My.Resources.光源圖示_暗
+                Else
+                    SerialPort1.Write("F")
+                    VLight = True
+                    Button_VLight.BackgroundImage = My.Resources.光源圖示_亮
+                End If
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+
+        End If
     End Sub
 End Class
