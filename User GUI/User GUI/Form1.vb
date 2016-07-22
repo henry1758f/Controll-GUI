@@ -69,6 +69,7 @@ Public Class Form1
                 ComboBox_BaudSelect.Enabled = True
                 ComboBox_Mode.Enabled = True
                 Button_Connect.Text = "Connect"
+                RichTextBox_Message.Text = ""
             End Try
 
         End If
@@ -82,31 +83,15 @@ Public Class Form1
 
     End Sub
     Private Sub ReceiveText(ByVal [Text] As String)
+
         If Me.RichTextBox_Message.InvokeRequired Then
             Dim x As New Settextcallback(AddressOf ReceiveText)
-            Me.BeginInvoke(x, New Object() {(Text)})
+            Me.BeginInvoke(x, New Object() {([Text])})
+            Me.DataFlow &= [Text]
         Else
-            If MaybeEnd = True And [Text] = "~" Then    'The DATA String End
-                Me.RichTextBox_Message.Text &= [Text]
-                DataFlow &= [Text]
-                MaybeEnd = False
-                LabelNOW.Text = DataFlow
-                DataFlow = ""
-
-            Else
-                If [Text] = "$" Then                    'Maybe the DATA String End or begin
-                    MaybeEnd = True
-                    Me.RichTextBox_Message.Text &= [Text]
-                    DataFlow &= [Text]
-                Else                                    'Surely not the DATAString End
-                    MaybeEnd = False
-                    Me.RichTextBox_Message.Text &= [Text]
-                    DataFlow &= [Text]
-                End If
-
-            End If
+            Me.RichTextBox_Message.Text &= [Text]
+            Me.DataFlow &= [Text]
         End If
-
     End Sub
 
     Private Sub Button_VideoSet_Click(sender As Object, e As EventArgs) Handles Button_VideoSet.Click
@@ -288,6 +273,14 @@ Public Class Form1
             End Try
         Else
 
+        End If
+    End Sub
+
+    Private Sub RichTextBox_Message_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox_Message.TextChanged
+        If RichTextBox_Message.Text.EndsWith("$~") Then
+            LabelNOW.Text = RichTextBox_Message.Text
+            RichTextBox_MessageFlow.Text &= RichTextBox_Message.Text
+            RichTextBox_Message.Text = ""
         End If
     End Sub
 End Class
