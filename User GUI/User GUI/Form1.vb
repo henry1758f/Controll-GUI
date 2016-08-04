@@ -18,6 +18,10 @@ Public Class Form1
     Dim CAMERA As VideoCaptureDevice    'Video Camera
     Dim bmp As Bitmap
 
+    Dim msg_FaildConnecton As String = " FAILED CONNECTION! "
+    Dim msg_ConnectionNOTYET As String = "You haven't connect to the Transmit Device !" + vbCrLf + "Please check your serial port setting and click the CONNECT button."
+
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         myport = IO.Ports.SerialPort.GetPortNames()
         ComboBox_PortSelect.Items.AddRange(myport)
@@ -75,7 +79,7 @@ Public Class Form1
         End If
 
     End Sub
-
+    '************************** About Serial Port Receive
     Private Sub SerialPort1_DataReceived(sender As Object, e As Ports.SerialDataReceivedEventArgs) Handles SerialPort1.DataReceived
         If ConnectStatus = True Then
             ReceiveText(SerialPort1.ReadExisting())
@@ -94,6 +98,9 @@ Public Class Form1
         End If
     End Sub
 
+    '***************************************************
+
+    '************************* About Video Connection and setting
     Private Sub Button_VideoSet_Click(sender As Object, e As EventArgs) Handles Button_VideoSet.Click
         Dim Camera1 As VideoCaptureDeviceForm = New VideoCaptureDeviceForm
         If Camera1.ShowDialog() = DialogResult.OK Then
@@ -107,6 +114,9 @@ Public Class Form1
         PictureBox1.Image = DirectCast(eventArgs.Frame.Clone(), Bitmap)
     End Sub
 
+    '************************************************************
+
+    '************************ About Activity after closed the app
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
             CAMERA.Stop()
@@ -115,6 +125,8 @@ Public Class Form1
 
         End Try
     End Sub
+
+    '***********************************************************
 
     Private Sub PictureBox2_Paint(sender As Object, e As PaintEventArgs) Handles PictureBox2.Paint
         'PictureBox3.BackgroundImage = PictureBox2.Image
@@ -146,135 +158,137 @@ Public Class Form1
         PictureBox2.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=" + TextBox_Latitude.Text + "," + TextBox_Lontitude.Text + "&zoom=" + TextBox_MapZoom.Text + "&size=511x396&key=AIzaSyBDNQ2wZ3Lt73qKvn6lfzztrsc_X7ixBdM"
     End Sub
 
-    Private Sub Button_Goforward_Click(sender As Object, e As EventArgs) Handles Button_Goforward.Click
-        If ConnectStatus Then
-            Try
-                SerialPort1.Write("A")
-                Button_Goforward.ForeColor = Color.White        ''
-                Button_Goforward.BackColor = Color.DarkRed      ''
-                Button_GoBackward.ForeColor = Color.Black
-                Button_GoBackward.BackColor = DefaultBackColor
-                Button_GoLeft.ForeColor = Color.Black
-                Button_GoLeft.BackColor = DefaultBackColor
-                Button_GoRight.ForeColor = Color.Black
-                Button_GoRight.BackColor = DefaultBackColor
-                Button_STOP.ForeColor = Color.Black
-                Button_STOP.BackColor = DefaultBackColor
-            Catch ex As Exception
-                '指令未送成功
-            End Try
-        Else
-
-        End If
-    End Sub
-
-    Private Sub Button_STOP_Click(sender As Object, e As EventArgs) Handles Button_STOP.Click
-        If ConnectStatus Then
-            Try
-                SerialPort1.Write("E")
-                Button_Goforward.ForeColor = Color.Black
-                Button_Goforward.BackColor = DefaultBackColor
-                Button_GoBackward.ForeColor = Color.Black
-                Button_GoBackward.BackColor = DefaultBackColor
-                Button_GoLeft.ForeColor = Color.Black
-                Button_GoLeft.BackColor = DefaultBackColor
-                Button_GoRight.ForeColor = Color.Black
-                Button_GoRight.BackColor = DefaultBackColor
-                Button_STOP.ForeColor = Color.White             ''
-                Button_STOP.BackColor = Color.DarkRed           ''
-            Catch ex As Exception
-                '指令未送成功
-            End Try
-        Else
-
-        End If
-    End Sub
-
-    Private Sub Button_GoRight_Click(sender As Object, e As EventArgs) Handles Button_GoRight.Click
+    '********************************** Button Click about Vehicle
+    Private Sub Button_VehicleForward_Click(sender As Object, e As EventArgs) Handles Button_VehicleForward.Click
         If ConnectStatus Then
             Try
                 SerialPort1.Write("B")
-                Button_Goforward.ForeColor = Color.Black
-                Button_Goforward.BackColor = DefaultBackColor
-                Button_GoBackward.ForeColor = Color.Black
-                Button_GoBackward.BackColor = DefaultBackColor
-                Button_GoLeft.ForeColor = Color.Black
-                Button_GoLeft.BackColor = DefaultBackColor
-                Button_GoRight.ForeColor = Color.White          ''
-                Button_GoRight.BackColor = Color.DarkRed        ''
-                Button_STOP.ForeColor = Color.Black
-                Button_STOP.BackColor = DefaultBackColor
+                Button_VehicleForward.ForeColor = Color.White        ''
+                Button_VehicleForward.BackColor = Color.DarkRed      ''
+                Button_VehicleBackward.ForeColor = Color.Black
+                Button_VehicleBackward.BackColor = DefaultBackColor
+                Button_VehicleLeft.ForeColor = Color.Black
+                Button_VehicleLeft.BackColor = DefaultBackColor
+                Button_VehicleRight.ForeColor = Color.Black
+                Button_VehicleRight.BackColor = DefaultBackColor
+                Button_VehicleStop.ForeColor = Color.Black
+                Button_VehicleStop.BackColor = DefaultBackColor
             Catch ex As Exception
                 '指令未送成功
             End Try
         Else
-
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
         End If
     End Sub
 
-    Private Sub Button_GoLeft_Click(sender As Object, e As EventArgs) Handles Button_GoLeft.Click
+    Private Sub Button_VehicleStop_Click(sender As Object, e As EventArgs) Handles Button_VehicleStop.Click
         If ConnectStatus Then
             Try
-                SerialPort1.Write("C")
-                Button_Goforward.ForeColor = Color.Black
-                Button_Goforward.BackColor = DefaultBackColor
-                Button_GoBackward.ForeColor = Color.Black
-                Button_GoBackward.BackColor = DefaultBackColor
-                Button_GoLeft.ForeColor = Color.White           ''
-                Button_GoLeft.BackColor = Color.DarkRed         ''
-                Button_GoRight.ForeColor = Color.Black
-                Button_GoRight.BackColor = DefaultBackColor
-                Button_STOP.ForeColor = Color.Black
-                Button_STOP.BackColor = DefaultBackColor
+                SerialPort1.Write("A")
+                Button_VehicleForward.ForeColor = Color.Black
+                Button_VehicleForward.BackColor = DefaultBackColor
+                Button_VehicleBackward.ForeColor = Color.Black
+                Button_VehicleBackward.BackColor = DefaultBackColor
+                Button_VehicleLeft.ForeColor = Color.Black
+                Button_VehicleLeft.BackColor = DefaultBackColor
+                Button_VehicleRight.ForeColor = Color.Black
+                Button_VehicleRight.BackColor = DefaultBackColor
+                Button_VehicleStop.ForeColor = Color.White             ''
+                Button_VehicleStop.BackColor = Color.DarkRed           ''
             Catch ex As Exception
                 '指令未送成功
             End Try
         Else
-
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
         End If
     End Sub
 
-    Private Sub Button_GoBackward_Click(sender As Object, e As EventArgs) Handles Button_GoBackward.Click
+    Private Sub Button_VehicleRight_Click(sender As Object, e As EventArgs) Handles Button_VehicleRight.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("E")
+                Button_VehicleForward.ForeColor = Color.Black
+                Button_VehicleForward.BackColor = DefaultBackColor
+                Button_VehicleBackward.ForeColor = Color.Black
+                Button_VehicleBackward.BackColor = DefaultBackColor
+                Button_VehicleLeft.ForeColor = Color.Black
+                Button_VehicleLeft.BackColor = DefaultBackColor
+                Button_VehicleRight.ForeColor = Color.White          ''
+                Button_VehicleRight.BackColor = Color.DarkRed        ''
+                Button_VehicleStop.ForeColor = Color.Black
+                Button_VehicleStop.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_VehicleLeft_Click(sender As Object, e As EventArgs) Handles Button_VehicleLeft.Click
         If ConnectStatus Then
             Try
                 SerialPort1.Write("D")
-                Button_Goforward.ForeColor = Color.Black
-                Button_Goforward.BackColor = DefaultBackColor
-                Button_GoBackward.ForeColor = Color.White           ''
-                Button_GoBackward.BackColor = Color.DarkRed         ''
-                Button_GoLeft.ForeColor = Color.Black
-                Button_GoLeft.BackColor = DefaultBackColor
-                Button_GoRight.ForeColor = Color.Black
-                Button_GoRight.BackColor = DefaultBackColor
-                Button_STOP.ForeColor = Color.Black
-                Button_STOP.BackColor = DefaultBackColor
+                Button_VehicleForward.ForeColor = Color.Black
+                Button_VehicleForward.BackColor = DefaultBackColor
+                Button_VehicleBackward.ForeColor = Color.Black
+                Button_VehicleBackward.BackColor = DefaultBackColor
+                Button_VehicleLeft.ForeColor = Color.White           ''
+                Button_VehicleLeft.BackColor = Color.DarkRed         ''
+                Button_VehicleRight.ForeColor = Color.Black
+                Button_VehicleRight.BackColor = DefaultBackColor
+                Button_VehicleStop.ForeColor = Color.Black
+                Button_VehicleStop.BackColor = DefaultBackColor
             Catch ex As Exception
                 '指令未送成功
             End Try
         Else
-
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
         End If
     End Sub
 
-    Private Sub Button_VLight_Click(sender As Object, e As EventArgs) Handles Button_VLight.Click
+    Private Sub Button_VehicleBackward_Click(sender As Object, e As EventArgs) Handles Button_VehicleBackward.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("C")
+                Button_VehicleForward.ForeColor = Color.Black
+                Button_VehicleForward.BackColor = DefaultBackColor
+                Button_VehicleBackward.ForeColor = Color.White           ''
+                Button_VehicleBackward.BackColor = Color.DarkRed         ''
+                Button_VehicleLeft.ForeColor = Color.Black
+                Button_VehicleLeft.BackColor = DefaultBackColor
+                Button_VehicleRight.ForeColor = Color.Black
+                Button_VehicleRight.BackColor = DefaultBackColor
+                Button_VehicleStop.ForeColor = Color.Black
+                Button_VehicleStop.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_VehicleLightt_Click(sender As Object, e As EventArgs) Handles Button_VehicleLight.Click
         If ConnectStatus Then
             Try
                 If VLight Then
                     SerialPort1.Write("G")
                     VLight = False
-                    Button_VLight.BackgroundImage = My.Resources.光源圖示_暗
+                    Button_VehicleLight.BackgroundImage = My.Resources.光源圖示_暗
                 Else
                     SerialPort1.Write("F")
                     VLight = True
-                    Button_VLight.BackgroundImage = My.Resources.光源圖示_亮
+                    Button_VehicleLight.BackgroundImage = My.Resources.光源圖示_亮
                 End If
             Catch ex As Exception
                 '指令未送成功
             End Try
         Else
-
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
         End If
     End Sub
+    '**********************************************************
 
     Private Sub RichTextBox_Message_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox_Message.TextChanged
         If RichTextBox_Message.Text.EndsWith("$~") Then
@@ -283,4 +297,170 @@ Public Class Form1
             RichTextBox_Message.Text = ""
         End If
     End Sub
+
+    '********************************** Button Click about Buoy
+    Private Sub Button_BuoyForward_Click(sender As Object, e As EventArgs) Handles Button_BuoyForward.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("U")
+                Button_BuoyForward.ForeColor = Color.White           ''
+                Button_BuoyForward.BackColor = Color.DarkRed         ''
+                Button_BuoyBackward.ForeColor = Color.Black
+                Button_BuoyBackward.BackColor = DefaultBackColor
+                Button_BuoyLeft.ForeColor = Color.Black
+                Button_BuoyLeft.BackColor = DefaultBackColor
+                Button_BuoyRight.ForeColor = Color.Black
+                Button_BuoyRight.BackColor = DefaultBackColor
+                Button_BuoyStop.ForeColor = Color.Black
+                Button_BuoyStop.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_BuoyRight_Click(sender As Object, e As EventArgs) Handles Button_BuoyRight.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("X")
+                Button_BuoyForward.ForeColor = Color.Black
+                Button_BuoyForward.BackColor = DefaultBackColor
+                Button_BuoyBackward.ForeColor = Color.Black
+                Button_BuoyBackward.BackColor = DefaultBackColor
+                Button_BuoyLeft.ForeColor = Color.Black
+                Button_BuoyLeft.BackColor = DefaultBackColor
+                Button_BuoyRight.ForeColor = Color.White           ''
+                Button_BuoyRight.BackColor = Color.DarkRed         ''
+                Button_BuoyStop.ForeColor = Color.Black
+                Button_BuoyStop.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_BuoyBackward_Click(sender As Object, e As EventArgs) Handles Button_BuoyBackward.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("V")
+                Button_BuoyForward.ForeColor = Color.Black
+                Button_BuoyForward.BackColor = DefaultBackColor
+                Button_BuoyBackward.ForeColor = Color.White           ''
+                Button_BuoyBackward.BackColor = Color.DarkRed         ''
+                Button_BuoyLeft.ForeColor = Color.Black
+                Button_BuoyLeft.BackColor = DefaultBackColor
+                Button_BuoyRight.ForeColor = Color.Black
+                Button_BuoyRight.BackColor = DefaultBackColor
+                Button_BuoyStop.ForeColor = Color.Black
+                Button_BuoyStop.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_BuoyLeft_Click(sender As Object, e As EventArgs) Handles Button_BuoyLeft.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("W")
+                Button_BuoyForward.ForeColor = Color.Black
+                Button_BuoyForward.BackColor = DefaultBackColor
+                Button_BuoyBackward.ForeColor = Color.Black
+                Button_BuoyBackward.BackColor = DefaultBackColor
+                Button_BuoyLeft.ForeColor = Color.White           ''
+                Button_BuoyLeft.BackColor = Color.DarkRed         ''
+                Button_BuoyRight.ForeColor = Color.Black
+                Button_BuoyRight.BackColor = DefaultBackColor
+                Button_BuoyStop.ForeColor = Color.Black
+                Button_BuoyStop.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_BuoyStop_Click(sender As Object, e As EventArgs) Handles Button_BuoyStop.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("T")
+                Button_BuoyForward.ForeColor = Color.Black
+                Button_BuoyForward.BackColor = DefaultBackColor
+                Button_BuoyBackward.ForeColor = Color.Black
+                Button_BuoyBackward.BackColor = DefaultBackColor
+                Button_BuoyLeft.ForeColor = Color.Black
+                Button_BuoyLeft.BackColor = DefaultBackColor
+                Button_BuoyRight.ForeColor = Color.Black
+                Button_BuoyRight.BackColor = DefaultBackColor
+                Button_BuoyStop.ForeColor = Color.White           ''
+                Button_BuoyStop.BackColor = Color.DarkRed         ''
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_BuoyReelUp_Click(sender As Object, e As EventArgs) Handles Button_BuoyReelUp.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("0")
+                Button_BuoyReelUp.ForeColor = Color.White           ''
+                Button_BuoyReelUp.BackColor = Color.DarkRed         ''
+                Button_BuoyReelStop.ForeColor = Color.Black
+                Button_BuoyReelStop.BackColor = DefaultBackColor
+                Button_BuoyReelDown.ForeColor = Color.Black
+                Button_BuoyReelDown.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_BuoyReelDown_Click(sender As Object, e As EventArgs) Handles Button_BuoyReelDown.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("Z")
+                Button_BuoyReelUp.ForeColor = Color.Black
+                Button_BuoyReelUp.BackColor = DefaultBackColor
+                Button_BuoyReelStop.ForeColor = Color.Black
+                Button_BuoyReelStop.BackColor = DefaultBackColor
+                Button_BuoyReelDown.ForeColor = Color.White           ''
+                Button_BuoyReelDown.BackColor = Color.DarkRed         ''
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+
+    Private Sub Button_BuoyReelStop_Click(sender As Object, e As EventArgs) Handles Button_BuoyReelStop.Click
+        If ConnectStatus Then
+            Try
+                SerialPort1.Write("Q")
+                Button_BuoyReelUp.ForeColor = Color.Black
+                Button_BuoyReelUp.BackColor = DefaultBackColor
+                Button_BuoyReelStop.ForeColor = Color.White           ''
+                Button_BuoyReelStop.BackColor = Color.DarkRed         ''
+                Button_BuoyReelDown.ForeColor = Color.Black
+                Button_BuoyReelDown.BackColor = DefaultBackColor
+            Catch ex As Exception
+                '指令未送成功
+            End Try
+        Else
+            MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
+        End If
+    End Sub
+    '**********************************************************
 End Class
