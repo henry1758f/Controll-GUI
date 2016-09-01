@@ -412,7 +412,7 @@ Public Class Form1
     Private Sub Button_BuoyReelUp_Click(sender As Object, e As EventArgs) Handles Button_BuoyReelUp.Click
         If ConnectStatus Then
             Try
-                SerialPort1.Write("0")
+                SerialPort1.Write("Y")
                 Button_BuoyReelUp.ForeColor = Color.White           ''
                 Button_BuoyReelUp.BackColor = Color.DarkRed         ''
                 Button_BuoyReelStop.ForeColor = Color.Black
@@ -448,7 +448,7 @@ Public Class Form1
     Private Sub Button_BuoyReelStop_Click(sender As Object, e As EventArgs) Handles Button_BuoyReelStop.Click
         If ConnectStatus Then
             Try
-                SerialPort1.Write("Q")
+                SerialPort1.Write("S")
                 Button_BuoyReelUp.ForeColor = Color.Black
                 Button_BuoyReelUp.BackColor = DefaultBackColor
                 Button_BuoyReelStop.ForeColor = Color.White           ''
