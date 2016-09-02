@@ -24,52 +24,58 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim CustomLabel4 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
-        Dim CustomLabel5 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
-        Dim CustomLabel6 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint34 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 23.5R)
-        Dim DataPoint35 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 23.6R)
-        Dim DataPoint36 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 23.6R)
-        Dim DataPoint37 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 23.6R)
-        Dim DataPoint38 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 23.9R)
-        Dim DataPoint39 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 24.0R)
-        Dim DataPoint40 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 24.6R)
-        Dim DataPoint41 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 25.6R)
-        Dim DataPoint42 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 26.1R)
-        Dim DataPoint43 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 26.7R)
-        Dim DataPoint44 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 26.9R)
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint45 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 25.0R)
-        Dim DataPoint46 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 24.9R)
-        Dim DataPoint47 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 24.8R)
-        Dim DataPoint48 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 24.8R)
-        Dim DataPoint49 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 24.6R)
-        Dim DataPoint50 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 24.5R)
-        Dim DataPoint51 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 24.4R)
-        Dim DataPoint52 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 24.3R)
-        Dim DataPoint53 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 24.2R)
-        Dim DataPoint54 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 24.1R)
-        Dim DataPoint55 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 23.9R)
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint56 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 28.9R)
-        Dim DataPoint57 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 29.0R)
-        Dim DataPoint58 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 29.3R)
-        Dim DataPoint59 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 29.5R)
-        Dim DataPoint60 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 29.6R)
-        Dim DataPoint61 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 29.8R)
-        Dim DataPoint62 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 29.7R)
-        Dim DataPoint63 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 29.9R)
-        Dim DataPoint64 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 30.1R)
-        Dim DataPoint65 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 29.5R)
-        Dim DataPoint66 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 29.1R)
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim CustomLabel7 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
+        Dim CustomLabel8 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
+        Dim CustomLabel9 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint67 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 23.5R)
+        Dim DataPoint68 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 23.6R)
+        Dim DataPoint69 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 23.6R)
+        Dim DataPoint70 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 23.6R)
+        Dim DataPoint71 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 23.9R)
+        Dim DataPoint72 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 24.0R)
+        Dim DataPoint73 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 24.6R)
+        Dim DataPoint74 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 25.6R)
+        Dim DataPoint75 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 26.1R)
+        Dim DataPoint76 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 26.7R)
+        Dim DataPoint77 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 26.9R)
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint78 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 25.0R)
+        Dim DataPoint79 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 24.9R)
+        Dim DataPoint80 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 24.8R)
+        Dim DataPoint81 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 24.8R)
+        Dim DataPoint82 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 24.6R)
+        Dim DataPoint83 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 24.5R)
+        Dim DataPoint84 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 24.4R)
+        Dim DataPoint85 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 24.3R)
+        Dim DataPoint86 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 24.2R)
+        Dim DataPoint87 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 24.1R)
+        Dim DataPoint88 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 23.9R)
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint89 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 28.9R)
+        Dim DataPoint90 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 29.0R)
+        Dim DataPoint91 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 29.3R)
+        Dim DataPoint92 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 29.5R)
+        Dim DataPoint93 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 29.6R)
+        Dim DataPoint94 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 29.8R)
+        Dim DataPoint95 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 29.7R)
+        Dim DataPoint96 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 29.9R)
+        Dim DataPoint97 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 30.1R)
+        Dim DataPoint98 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 29.5R)
+        Dim DataPoint99 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 29.1R)
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.設定ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeriesPortSettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.說明ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel6 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button_VehicleLight = New System.Windows.Forms.Button()
         Me.Button_VehicleStop = New System.Windows.Forms.Button()
@@ -82,6 +88,7 @@ Partial Class Form1
         Me.GroupBox_ControlPanel = New System.Windows.Forms.GroupBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button_BuoyReelStop = New System.Windows.Forms.Button()
         Me.Button_BuoyStop = New System.Windows.Forms.Button()
         Me.Button_BuoyLeft = New System.Windows.Forms.Button()
         Me.Button_BuoyBackward = New System.Windows.Forms.Button()
@@ -110,8 +117,10 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.LabelNOW = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label_DATAreceiveTitle = New System.Windows.Forms.Label()
+        Me.Label_DATAreceive = New System.Windows.Forms.Label()
         Me.RichTextBox_MessageFlow = New System.Windows.Forms.RichTextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label_NOWDATAtitle = New System.Windows.Forms.Label()
         Me.RichTextBox_Message = New System.Windows.Forms.RichTextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.ComboBox_BaudSelect = New System.Windows.Forms.ComboBox()
@@ -123,11 +132,11 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox_PortSelect = New System.Windows.Forms.ComboBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TextBox_MapZoom = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button_BuoyReelStop = New System.Windows.Forms.Button()
+        Me.Timer_DriverConnectionCheck = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox_ControlPanel.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
@@ -181,11 +190,60 @@ Partial Class Form1
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 981)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel6})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 979)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1662, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1662, 24)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Window
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(110, 19)
+        Me.ToolStripStatusLabel1.Text = "Driver Status : "
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.BackColor = System.Drawing.Color.Red
+        Me.ToolStripStatusLabel2.Font = New System.Drawing.Font("Microsoft JhengHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.ToolStripStatusLabel2.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(110, 19)
+        Me.ToolStripStatusLabel2.Text = "Disconnected"
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.BackColor = System.Drawing.SystemColors.Window
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(114, 19)
+        Me.ToolStripStatusLabel3.Text = "   Buoy Status : "
+        '
+        'ToolStripStatusLabel4
+        '
+        Me.ToolStripStatusLabel4.BackColor = System.Drawing.Color.Red
+        Me.ToolStripStatusLabel4.Font = New System.Drawing.Font("Microsoft JhengHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.ToolStripStatusLabel4.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(110, 19)
+        Me.ToolStripStatusLabel4.Text = "Disconnected"
+        '
+        'ToolStripStatusLabel5
+        '
+        Me.ToolStripStatusLabel5.BackColor = System.Drawing.SystemColors.Window
+        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(129, 19)
+        Me.ToolStripStatusLabel5.Text = "   Vehicle Status : "
+        '
+        'ToolStripStatusLabel6
+        '
+        Me.ToolStripStatusLabel6.BackColor = System.Drawing.Color.Red
+        Me.ToolStripStatusLabel6.Font = New System.Drawing.Font("Microsoft JhengHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.ToolStripStatusLabel6.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel6.Name = "ToolStripStatusLabel6"
+        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(110, 19)
+        Me.ToolStripStatusLabel6.Text = "Disconnected"
         '
         'Panel1
         '
@@ -314,6 +372,15 @@ Partial Class Form1
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(195, 152)
         Me.Panel2.TabIndex = 3
+        '
+        'Button_BuoyReelStop
+        '
+        Me.Button_BuoyReelStop.Location = New System.Drawing.Point(147, 56)
+        Me.Button_BuoyReelStop.Name = "Button_BuoyReelStop"
+        Me.Button_BuoyReelStop.Size = New System.Drawing.Size(40, 40)
+        Me.Button_BuoyReelStop.TabIndex = 7
+        Me.Button_BuoyReelStop.Text = "≡"
+        Me.Button_BuoyReelStop.UseVisualStyleBackColor = True
         '
         'Button_BuoyStop
         '
@@ -537,65 +604,65 @@ Partial Class Form1
         Me.Chart_Tempurature.BackColor = System.Drawing.Color.Silver
         Me.Chart_Tempurature.BorderlineColor = System.Drawing.Color.Gainsboro
         Me.Chart_Tempurature.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
-        CustomLabel4.Text = "-1s"
-        CustomLabel5.Text = "-2s"
-        CustomLabel6.Text = "-3s"
-        ChartArea2.AxisX.CustomLabels.Add(CustomLabel4)
-        ChartArea2.AxisX.CustomLabels.Add(CustomLabel5)
-        ChartArea2.AxisX.CustomLabels.Add(CustomLabel6)
-        ChartArea2.AxisY.LineWidth = 2
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart_Tempurature.ChartAreas.Add(ChartArea2)
+        CustomLabel7.Text = "-1s"
+        CustomLabel8.Text = "-2s"
+        CustomLabel9.Text = "-3s"
+        ChartArea3.AxisX.CustomLabels.Add(CustomLabel7)
+        ChartArea3.AxisX.CustomLabels.Add(CustomLabel8)
+        ChartArea3.AxisX.CustomLabels.Add(CustomLabel9)
+        ChartArea3.AxisY.LineWidth = 2
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart_Tempurature.ChartAreas.Add(ChartArea3)
         Me.Chart_Tempurature.Location = New System.Drawing.Point(235, 23)
         Me.Chart_Tempurature.Name = "Chart_Tempurature"
-        Series4.BorderWidth = 3
-        Series4.ChartArea = "ChartArea1"
-        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series4.Name = "Series1"
-        Series4.Points.Add(DataPoint34)
-        Series4.Points.Add(DataPoint35)
-        Series4.Points.Add(DataPoint36)
-        Series4.Points.Add(DataPoint37)
-        Series4.Points.Add(DataPoint38)
-        Series4.Points.Add(DataPoint39)
-        Series4.Points.Add(DataPoint40)
-        Series4.Points.Add(DataPoint41)
-        Series4.Points.Add(DataPoint42)
-        Series4.Points.Add(DataPoint43)
-        Series4.Points.Add(DataPoint44)
-        Series5.BorderWidth = 3
-        Series5.ChartArea = "ChartArea1"
-        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series5.Name = "Series2"
-        Series5.Points.Add(DataPoint45)
-        Series5.Points.Add(DataPoint46)
-        Series5.Points.Add(DataPoint47)
-        Series5.Points.Add(DataPoint48)
-        Series5.Points.Add(DataPoint49)
-        Series5.Points.Add(DataPoint50)
-        Series5.Points.Add(DataPoint51)
-        Series5.Points.Add(DataPoint52)
-        Series5.Points.Add(DataPoint53)
-        Series5.Points.Add(DataPoint54)
-        Series5.Points.Add(DataPoint55)
-        Series6.BorderWidth = 3
-        Series6.ChartArea = "ChartArea1"
-        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series6.Name = "Series3"
-        Series6.Points.Add(DataPoint56)
-        Series6.Points.Add(DataPoint57)
-        Series6.Points.Add(DataPoint58)
-        Series6.Points.Add(DataPoint59)
-        Series6.Points.Add(DataPoint60)
-        Series6.Points.Add(DataPoint61)
-        Series6.Points.Add(DataPoint62)
-        Series6.Points.Add(DataPoint63)
-        Series6.Points.Add(DataPoint64)
-        Series6.Points.Add(DataPoint65)
-        Series6.Points.Add(DataPoint66)
-        Me.Chart_Tempurature.Series.Add(Series4)
-        Me.Chart_Tempurature.Series.Add(Series5)
-        Me.Chart_Tempurature.Series.Add(Series6)
+        Series7.BorderWidth = 3
+        Series7.ChartArea = "ChartArea1"
+        Series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series7.Name = "Series1"
+        Series7.Points.Add(DataPoint67)
+        Series7.Points.Add(DataPoint68)
+        Series7.Points.Add(DataPoint69)
+        Series7.Points.Add(DataPoint70)
+        Series7.Points.Add(DataPoint71)
+        Series7.Points.Add(DataPoint72)
+        Series7.Points.Add(DataPoint73)
+        Series7.Points.Add(DataPoint74)
+        Series7.Points.Add(DataPoint75)
+        Series7.Points.Add(DataPoint76)
+        Series7.Points.Add(DataPoint77)
+        Series8.BorderWidth = 3
+        Series8.ChartArea = "ChartArea1"
+        Series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series8.Name = "Series2"
+        Series8.Points.Add(DataPoint78)
+        Series8.Points.Add(DataPoint79)
+        Series8.Points.Add(DataPoint80)
+        Series8.Points.Add(DataPoint81)
+        Series8.Points.Add(DataPoint82)
+        Series8.Points.Add(DataPoint83)
+        Series8.Points.Add(DataPoint84)
+        Series8.Points.Add(DataPoint85)
+        Series8.Points.Add(DataPoint86)
+        Series8.Points.Add(DataPoint87)
+        Series8.Points.Add(DataPoint88)
+        Series9.BorderWidth = 3
+        Series9.ChartArea = "ChartArea1"
+        Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series9.Name = "Series3"
+        Series9.Points.Add(DataPoint89)
+        Series9.Points.Add(DataPoint90)
+        Series9.Points.Add(DataPoint91)
+        Series9.Points.Add(DataPoint92)
+        Series9.Points.Add(DataPoint93)
+        Series9.Points.Add(DataPoint94)
+        Series9.Points.Add(DataPoint95)
+        Series9.Points.Add(DataPoint96)
+        Series9.Points.Add(DataPoint97)
+        Series9.Points.Add(DataPoint98)
+        Series9.Points.Add(DataPoint99)
+        Me.Chart_Tempurature.Series.Add(Series7)
+        Me.Chart_Tempurature.Series.Add(Series8)
+        Me.Chart_Tempurature.Series.Add(Series9)
         Me.Chart_Tempurature.Size = New System.Drawing.Size(391, 171)
         Me.Chart_Tempurature.TabIndex = 11
         Me.Chart_Tempurature.Text = "Chart1"
@@ -663,8 +730,10 @@ Partial Class Form1
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Label_DATAreceiveTitle)
+        Me.GroupBox3.Controls.Add(Me.Label_DATAreceive)
         Me.GroupBox3.Controls.Add(Me.RichTextBox_MessageFlow)
-        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.Label_NOWDATAtitle)
         Me.GroupBox3.Controls.Add(Me.LabelNOW)
         Me.GroupBox3.Controls.Add(Me.RichTextBox_Message)
         Me.GroupBox3.Location = New System.Drawing.Point(721, 742)
@@ -674,6 +743,24 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Message"
         '
+        'Label_DATAreceiveTitle
+        '
+        Me.Label_DATAreceiveTitle.AutoSize = True
+        Me.Label_DATAreceiveTitle.Location = New System.Drawing.Point(94, 184)
+        Me.Label_DATAreceiveTitle.Name = "Label_DATAreceiveTitle"
+        Me.Label_DATAreceiveTitle.Size = New System.Drawing.Size(132, 15)
+        Me.Label_DATAreceiveTitle.TabIndex = 4
+        Me.Label_DATAreceiveTitle.Text = "NOW RECEIVING : "
+        '
+        'Label_DATAreceive
+        '
+        Me.Label_DATAreceive.AutoSize = True
+        Me.Label_DATAreceive.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Label_DATAreceive.Location = New System.Drawing.Point(232, 184)
+        Me.Label_DATAreceive.Name = "Label_DATAreceive"
+        Me.Label_DATAreceive.Size = New System.Drawing.Size(0, 15)
+        Me.Label_DATAreceive.TabIndex = 3
+        '
         'RichTextBox_MessageFlow
         '
         Me.RichTextBox_MessageFlow.Location = New System.Drawing.Point(263, 24)
@@ -682,14 +769,14 @@ Partial Class Form1
         Me.RichTextBox_MessageFlow.TabIndex = 2
         Me.RichTextBox_MessageFlow.Text = ""
         '
-        'Label4
+        'Label_NOWDATAtitle
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 156)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(91, 15)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "NOW DATA :"
+        Me.Label_NOWDATAtitle.AutoSize = True
+        Me.Label_NOWDATAtitle.Location = New System.Drawing.Point(9, 156)
+        Me.Label_NOWDATAtitle.Name = "Label_NOWDATAtitle"
+        Me.Label_NOWDATAtitle.Size = New System.Drawing.Size(91, 15)
+        Me.Label_NOWDATAtitle.TabIndex = 1
+        Me.Label_NOWDATAtitle.Text = "NOW DATA :"
         '
         'RichTextBox_Message
         '
@@ -726,6 +813,7 @@ Partial Class Form1
         Me.ComboBox_BaudSelect.Name = "ComboBox_BaudSelect"
         Me.ComboBox_BaudSelect.Size = New System.Drawing.Size(121, 30)
         Me.ComboBox_BaudSelect.TabIndex = 1
+        Me.ComboBox_BaudSelect.Text = "19200"
         '
         'Button_VideoSet
         '
@@ -789,6 +877,7 @@ Partial Class Form1
         'ComboBox_PortSelect
         '
         Me.ComboBox_PortSelect.FormattingEnabled = True
+        Me.ComboBox_PortSelect.ImeMode = System.Windows.Forms.ImeMode.Disable
         Me.ComboBox_PortSelect.Location = New System.Drawing.Point(128, 33)
         Me.ComboBox_PortSelect.Name = "ComboBox_PortSelect"
         Me.ComboBox_PortSelect.Size = New System.Drawing.Size(121, 30)
@@ -819,14 +908,9 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
-        'Button_BuoyReelStop
+        'Timer_DriverConnectionCheck
         '
-        Me.Button_BuoyReelStop.Location = New System.Drawing.Point(147, 56)
-        Me.Button_BuoyReelStop.Name = "Button_BuoyReelStop"
-        Me.Button_BuoyReelStop.Size = New System.Drawing.Size(40, 40)
-        Me.Button_BuoyReelStop.TabIndex = 7
-        Me.Button_BuoyReelStop.Text = "≡"
-        Me.Button_BuoyReelStop.UseVisualStyleBackColor = True
+        Me.Timer_DriverConnectionCheck.Interval = 5000
         '
         'Form1
         '
@@ -853,6 +937,8 @@ Partial Class Form1
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox_ControlPanel.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
@@ -903,7 +989,7 @@ Partial Class Form1
     Friend WithEvents Button_Connect As Button
     Friend WithEvents LabelNOW As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
+    Friend WithEvents Label_NOWDATAtitle As Label
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents TextBox_Lontitude As TextBox
@@ -926,7 +1012,6 @@ Partial Class Form1
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents TextBox_MapZoom As TextBox
     Friend WithEvents Chart_Tempurature As DataVisualization.Charting.Chart
     Friend WithEvents GroupBox7 As GroupBox
@@ -938,4 +1023,13 @@ Partial Class Form1
     Friend WithEvents Button_BuoyForward As Button
     Friend WithEvents Button_VehicleLight As Button
     Friend WithEvents Button_BuoyReelStop As Button
+    Friend WithEvents Label_DATAreceiveTitle As Label
+    Friend WithEvents Label_DATAreceive As Label
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel6 As ToolStripStatusLabel
+    Friend WithEvents Timer_DriverConnectionCheck As Timer
 End Class
