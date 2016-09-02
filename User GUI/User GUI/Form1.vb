@@ -52,9 +52,9 @@ Public Class Form1
     Private Sub SerialPortCloseProcess()        ' Processing of Closing the Serial Port
         Try
             ConnectStatus = False
-            SerialPort1.Close()
-            SerialPort1.DiscardInBuffer()
 
+            SerialPort1.DiscardInBuffer()
+            SerialPort1.Close()
             ComboBox_PortSelect.Enabled = True
             ComboBox_BaudSelect.Enabled = True
             ComboBox_Mode.Enabled = True
@@ -209,7 +209,7 @@ Public Class Form1
         End If
     End Sub
     Private Sub LabelNOW_TextChanged(sender As Object, e As EventArgs) Handles LabelNOW.TextChanged
-        If LabelNOW.Text.Contains("$CONNECT SUCCESS,1$~") Then
+        If LabelNOW.Text.Contains("$DRIVER CONNECTED,1$~") Then
             ToolStripStatusLabel2.BackColor = Color.Gray
             ToolStripStatusLabel2.ForeColor = Color.Black
             ToolStripStatusLabel2.Text = "Connected"
