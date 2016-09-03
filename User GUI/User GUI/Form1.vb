@@ -15,6 +15,8 @@ Public Class Form1
     Private MaybeEnd As Boolean         'The data flow string mabye end
     Dim VLight As Boolean               'The lights on vehicle
     Dim Connect_Driver As Boolean       'The Connect Status to Driver , Set 1 Before Timer_DriverConnectionCheck_Tick
+    Dim Connect_Buoy As Boolean         'The Connect Status to Buoy , Set 1 Before Timer_BuoyConnectionCheck_Tick
+    Dim Connect_Vehicle As Boolean      'The Connect Status to Vehicle , Also Set 1 Before Timer_BuoyConnectionCheck_Tick
     Dim retrying_num As Integer         'Interger of counting the retrying times of sending '0'
 
     Dim CAMERA As VideoCaptureDevice    'Video Camera
@@ -23,7 +25,7 @@ Public Class Form1
     Dim msg_FaildConnecton As String = " FAILED CONNECTION! "
     Dim msg_ConnectionNOTYET As String = "You haven't connect to the Transmit Device !" + vbCrLf + "Please check your serial port setting and click the CONNECT button."
 
-    Dim Connect_Buoy As Boolean     '
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         myport = IO.Ports.SerialPort.GetPortNames()
@@ -196,6 +198,16 @@ Public Class Form1
             End If
 
         End If
+        If Connect_Vehicle = True Then
+            ToolStripStatusLabel_VehicleConnection(1)
+            Connect_Vehicle = False
+        Else
+            If Connect_Buoy = True Then
+                ToolStripStatusLabel_VehicleConnection(2)
+            Else
+                ToolStripStatusLabel_VehicleConnection(0)
+            End If
+        End If
     End Sub
     '***************************************************************************
     '************************** About Serial Port Receive
@@ -230,6 +242,7 @@ Public Class Form1
     '************************** About Message String Processing
     Private Sub Label_DATAreceive_TextChanged(sender As Object, e As EventArgs) Handles Label_DATAreceive.TextChanged
         If Label_DATAreceive.Text.EndsWith("$~") Then
+
             LabelNOW.Text = ""
             LabelNOW.Text = Label_DATAreceive.Text
             RichTextBox_MessageFlow.Text = Label_DATAreceive.Text + vbCrLf + RichTextBox_MessageFlow.Text
@@ -248,6 +261,33 @@ Public Class Form1
                 Timer_BuoyConnectionCheck.Enabled = True
             End If
             ToolStripStatusLabel_BuoyConnection(1)
+        End If
+        If LabelNOW.Text.Contains("$VEHICLE_CONNECTED$~") Then
+            Connect_Vehicle = True
+            If Timer_BuoyConnectionCheck.Enabled = False Then
+                Timer_BuoyConnectionCheck.Enabled = True
+            End If
+            ToolStripStatusLabel_VehicleConnection(1)
+        End If
+        If LabelNOW.Text.Contains("$BUOY_TEMP:") Then
+            Dim BuoyTempCheck As String
+            Connect_Buoy = True
+            If Timer_BuoyConnectionCheck.Enabled = False Then
+                Timer_BuoyConnectionCheck.Enabled = True
+            End If
+            ToolStripStatusLabel_BuoyConnection(1)
+
+
+
+            'only 2
+            BuoyTempCheck = LabelNOW.Text
+            BuoyTempCheck = BuoyTempCheck.Remove(0, Len("$BUOY_TEMP:"))
+            BuoyTempCheck = BuoyTempCheck.Remove(BuoyTempCheck.IndexOf("$~"), 2)
+            'BuoyTempCheck = BuoyTempCheck.Insert(Len(BuoyTempCheck) - 1, ".")
+            TextBox_BuoyTemp.Text = BuoyTempCheck
+
+            'TextBox_BuoyTemp.Text = BuoyTempCheck.ElementAt(Len("$BUOY_TEMP:"))
+
         End If
     End Sub
     '********************************************************

@@ -108,7 +108,7 @@ Partial Class Form1
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox_BuoyTemp = New System.Windows.Forms.TextBox()
         Me.Chart_Tempurature = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -576,7 +576,7 @@ Partial Class Form1
         'GroupBox5
         '
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox5.Controls.Add(Me.TextBox3)
+        Me.GroupBox5.Controls.Add(Me.TextBox_BuoyTemp)
         Me.GroupBox5.Controls.Add(Me.Chart_Tempurature)
         Me.GroupBox5.Controls.Add(Me.TextBox2)
         Me.GroupBox5.Controls.Add(Me.TextBox1)
@@ -592,13 +592,13 @@ Partial Class Form1
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Tempurature"
         '
-        'TextBox3
+        'TextBox_BuoyTemp
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(186, 79)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(42, 27)
-        Me.TextBox3.TabIndex = 7
+        Me.TextBox_BuoyTemp.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox_BuoyTemp.Location = New System.Drawing.Point(186, 79)
+        Me.TextBox_BuoyTemp.Name = "TextBox_BuoyTemp"
+        Me.TextBox_BuoyTemp.Size = New System.Drawing.Size(42, 27)
+        Me.TextBox_BuoyTemp.TabIndex = 7
         '
         'Chart_Tempurature
         '
@@ -747,7 +747,7 @@ Partial Class Form1
         'Label_DATAreceiveTitle
         '
         Me.Label_DATAreceiveTitle.AutoSize = True
-        Me.Label_DATAreceiveTitle.Location = New System.Drawing.Point(94, 184)
+        Me.Label_DATAreceiveTitle.Location = New System.Drawing.Point(9, 184)
         Me.Label_DATAreceiveTitle.Name = "Label_DATAreceiveTitle"
         Me.Label_DATAreceiveTitle.Size = New System.Drawing.Size(132, 15)
         Me.Label_DATAreceiveTitle.TabIndex = 4
@@ -757,7 +757,7 @@ Partial Class Form1
         '
         Me.Label_DATAreceive.AutoSize = True
         Me.Label_DATAreceive.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.Label_DATAreceive.Location = New System.Drawing.Point(232, 184)
+        Me.Label_DATAreceive.Location = New System.Drawing.Point(147, 184)
         Me.Label_DATAreceive.Name = "Label_DATAreceive"
         Me.Label_DATAreceive.Size = New System.Drawing.Size(0, 15)
         Me.Label_DATAreceive.TabIndex = 3
@@ -1002,7 +1002,7 @@ Partial Class Form1
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox_BuoyTemp As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label7 As Label
