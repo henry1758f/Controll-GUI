@@ -24,52 +24,26 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim CustomLabel4 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
-        Dim CustomLabel5 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
-        Dim CustomLabel6 As System.Windows.Forms.DataVisualization.Charting.CustomLabel = New System.Windows.Forms.DataVisualization.Charting.CustomLabel()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint34 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 23.5R)
-        Dim DataPoint35 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 23.6R)
-        Dim DataPoint36 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 23.6R)
-        Dim DataPoint37 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 23.6R)
-        Dim DataPoint38 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 23.9R)
-        Dim DataPoint39 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 24.0R)
-        Dim DataPoint40 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 24.6R)
-        Dim DataPoint41 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 25.6R)
-        Dim DataPoint42 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 26.1R)
-        Dim DataPoint43 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 26.7R)
-        Dim DataPoint44 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 26.9R)
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint45 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 25.0R)
-        Dim DataPoint46 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 24.9R)
-        Dim DataPoint47 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 24.8R)
-        Dim DataPoint48 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 24.8R)
-        Dim DataPoint49 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 24.6R)
-        Dim DataPoint50 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 24.5R)
-        Dim DataPoint51 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 24.4R)
-        Dim DataPoint52 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 24.3R)
-        Dim DataPoint53 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 24.2R)
-        Dim DataPoint54 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 24.1R)
-        Dim DataPoint55 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 23.9R)
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint56 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 28.9R)
-        Dim DataPoint57 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-1.0R, 29.0R)
-        Dim DataPoint58 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-2.0R, 29.3R)
-        Dim DataPoint59 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-3.0R, 29.5R)
-        Dim DataPoint60 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-4.0R, 29.6R)
-        Dim DataPoint61 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-5.0R, 29.8R)
-        Dim DataPoint62 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-6.0R, 29.7R)
-        Dim DataPoint63 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-7.0R, 29.9R)
-        Dim DataPoint64 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-8.0R, 30.1R)
-        Dim DataPoint65 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-9.0R, 29.5R)
-        Dim DataPoint66 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(-10.0R, 29.1R)
+        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series19 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series20 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series21 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series22 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series23 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series24 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.設定ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeriesPortSettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.說明ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel6 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button_VehicleLight = New System.Windows.Forms.Button()
         Me.Button_VehicleStop = New System.Windows.Forms.Button()
@@ -82,6 +56,7 @@ Partial Class Form1
         Me.GroupBox_ControlPanel = New System.Windows.Forms.GroupBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button_BuoyReelStop = New System.Windows.Forms.Button()
         Me.Button_BuoyStop = New System.Windows.Forms.Button()
         Me.Button_BuoyLeft = New System.Windows.Forms.Button()
         Me.Button_BuoyBackward = New System.Windows.Forms.Button()
@@ -89,29 +64,40 @@ Partial Class Form1
         Me.Button_BuoyForward = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label_VehicleFacing = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label_VehicleFacingAngel = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button_mapZoomOUT = New System.Windows.Forms.Button()
+        Me.Button_mapZoomIN = New System.Windows.Forms.Button()
+        Me.Label_BuoyFacing = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.TextBox_MapZoom = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox_Altitude = New System.Windows.Forms.TextBox()
         Me.TextBox_Lontitude = New System.Windows.Forms.TextBox()
         Me.TextBox_Latitude = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label_BuoyFacingAngle = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label_titlePRESSURE = New System.Windows.Forms.Label()
+        Me.TextBox_BuoyTemp = New System.Windows.Forms.TextBox()
         Me.Chart_Tempurature = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox_VehicleTemp = New System.Windows.Forms.TextBox()
+        Me.TextBox_VehicleOUTtemp = New System.Windows.Forms.TextBox()
+        Me.Label_VehicleTemp = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.LabelNOW = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label_DATAreceiveTitle = New System.Windows.Forms.Label()
+        Me.Label_DATAreceive = New System.Windows.Forms.Label()
         Me.RichTextBox_MessageFlow = New System.Windows.Forms.RichTextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label_NOWDATAtitle = New System.Windows.Forms.Label()
         Me.RichTextBox_Message = New System.Windows.Forms.RichTextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.ComboBox_BaudSelect = New System.Windows.Forms.ComboBox()
@@ -123,11 +109,15 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox_PortSelect = New System.Windows.Forms.ComboBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.TextBox_MapZoom = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button_BuoyReelStop = New System.Windows.Forms.Button()
+        Me.Timer_DriverConnectionCheck = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer_BuoyConnectionCheck = New System.Windows.Forms.Timer(Me.components)
+        Me.GroupBox_Video = New System.Windows.Forms.GroupBox()
+        Me.Timer_TemperatureRecorder = New System.Windows.Forms.Timer(Me.components)
+        Me.Chart_TemperatureBigger = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox_ControlPanel.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
@@ -141,6 +131,8 @@ Partial Class Form1
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox_Video.SuspendLayout()
+        CType(Me.Chart_TemperatureBigger, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SerialPort1
@@ -181,11 +173,60 @@ Partial Class Form1
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 981)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel6})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 979)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1662, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1662, 24)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Window
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(110, 19)
+        Me.ToolStripStatusLabel1.Text = "Driver Status : "
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.BackColor = System.Drawing.Color.Red
+        Me.ToolStripStatusLabel2.Font = New System.Drawing.Font("Microsoft JhengHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.ToolStripStatusLabel2.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(110, 19)
+        Me.ToolStripStatusLabel2.Text = "Disconnected"
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.BackColor = System.Drawing.SystemColors.Window
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(114, 19)
+        Me.ToolStripStatusLabel3.Text = "   Buoy Status : "
+        '
+        'ToolStripStatusLabel4
+        '
+        Me.ToolStripStatusLabel4.BackColor = System.Drawing.Color.Red
+        Me.ToolStripStatusLabel4.Font = New System.Drawing.Font("Microsoft JhengHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.ToolStripStatusLabel4.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(110, 19)
+        Me.ToolStripStatusLabel4.Text = "Disconnected"
+        '
+        'ToolStripStatusLabel5
+        '
+        Me.ToolStripStatusLabel5.BackColor = System.Drawing.SystemColors.Window
+        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(129, 19)
+        Me.ToolStripStatusLabel5.Text = "   Vehicle Status : "
+        '
+        'ToolStripStatusLabel6
+        '
+        Me.ToolStripStatusLabel6.BackColor = System.Drawing.Color.Red
+        Me.ToolStripStatusLabel6.Font = New System.Drawing.Font("Microsoft JhengHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.ToolStripStatusLabel6.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel6.Name = "ToolStripStatusLabel6"
+        Me.ToolStripStatusLabel6.Size = New System.Drawing.Size(110, 19)
+        Me.ToolStripStatusLabel6.Text = "Disconnected"
         '
         'Panel1
         '
@@ -315,6 +356,15 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(195, 152)
         Me.Panel2.TabIndex = 3
         '
+        'Button_BuoyReelStop
+        '
+        Me.Button_BuoyReelStop.Location = New System.Drawing.Point(147, 56)
+        Me.Button_BuoyReelStop.Name = "Button_BuoyReelStop"
+        Me.Button_BuoyReelStop.Size = New System.Drawing.Size(40, 40)
+        Me.Button_BuoyReelStop.TabIndex = 7
+        Me.Button_BuoyReelStop.Text = "≡"
+        Me.Button_BuoyReelStop.UseVisualStyleBackColor = True
+        '
         'Button_BuoyStop
         '
         Me.Button_BuoyStop.Location = New System.Drawing.Point(55, 56)
@@ -374,17 +424,26 @@ Partial Class Form1
         '
         'GroupBox6
         '
-        Me.GroupBox6.Controls.Add(Me.Label12)
+        Me.GroupBox6.Controls.Add(Me.Label17)
+        Me.GroupBox6.Controls.Add(Me.Label7)
+        Me.GroupBox6.Controls.Add(Me.Label_VehicleFacing)
+        Me.GroupBox6.Controls.Add(Me.Label15)
+        Me.GroupBox6.Controls.Add(Me.Label_VehicleFacingAngel)
+        Me.GroupBox6.Controls.Add(Me.Label4)
+        Me.GroupBox6.Controls.Add(Me.Button_mapZoomOUT)
+        Me.GroupBox6.Controls.Add(Me.Button_mapZoomIN)
+        Me.GroupBox6.Controls.Add(Me.Label_BuoyFacing)
         Me.GroupBox6.Controls.Add(Me.PictureBox3)
+        Me.GroupBox6.Controls.Add(Me.TextBox_MapZoom)
         Me.GroupBox6.Controls.Add(Me.Label13)
         Me.GroupBox6.Controls.Add(Me.PictureBox2)
-        Me.GroupBox6.Controls.Add(Me.TextBox4)
+        Me.GroupBox6.Controls.Add(Me.TextBox_Altitude)
         Me.GroupBox6.Controls.Add(Me.TextBox_Lontitude)
         Me.GroupBox6.Controls.Add(Me.TextBox_Latitude)
         Me.GroupBox6.Controls.Add(Me.Label8)
         Me.GroupBox6.Controls.Add(Me.Label9)
         Me.GroupBox6.Controls.Add(Me.Label10)
-        Me.GroupBox6.Controls.Add(Me.Label11)
+        Me.GroupBox6.Controls.Add(Me.Label_BuoyFacingAngle)
         Me.GroupBox6.Font = New System.Drawing.Font("Meiryo UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox6.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox6.Location = New System.Drawing.Point(12, 507)
@@ -394,15 +453,86 @@ Partial Class Form1
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Location"
         '
-        'Label12
+        'Label7
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("微軟正黑體", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label12.Location = New System.Drawing.Point(535, 116)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(45, 42)
-        Me.Label12.TabIndex = 9
-        Me.Label12.Text = "N"
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(535, 218)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(80, 44)
+        Me.Label7.TabIndex = 17
+        Me.Label7.Text = "Vehicle " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Facing"
+        '
+        'Label_VehicleFacing
+        '
+        Me.Label_VehicleFacing.AutoSize = True
+        Me.Label_VehicleFacing.Font = New System.Drawing.Font("微軟正黑體", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label_VehicleFacing.Location = New System.Drawing.Point(544, 317)
+        Me.Label_VehicleFacing.Name = "Label_VehicleFacing"
+        Me.Label_VehicleFacing.Size = New System.Drawing.Size(45, 42)
+        Me.Label_VehicleFacing.TabIndex = 15
+        Me.Label_VehicleFacing.Text = "N"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("微軟正黑體", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label15.Location = New System.Drawing.Point(607, 262)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(17, 18)
+        Me.Label15.TabIndex = 16
+        Me.Label15.Text = "o"
+        '
+        'Label_VehicleFacingAngel
+        '
+        Me.Label_VehicleFacingAngel.AutoSize = True
+        Me.Label_VehicleFacingAngel.Font = New System.Drawing.Font("微軟正黑體", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label_VehicleFacingAngel.Location = New System.Drawing.Point(532, 275)
+        Me.Label_VehicleFacingAngel.Name = "Label_VehicleFacingAngel"
+        Me.Label_VehicleFacingAngel.Size = New System.Drawing.Size(78, 42)
+        Me.Label_VehicleFacingAngel.TabIndex = 14
+        Me.Label_VehicleFacingAngel.Text = "000"
+        Me.Label_VehicleFacingAngel.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(517, 72)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(118, 22)
+        Me.Label4.TabIndex = 13
+        Me.Label4.Text = "Buoy Facing"
+        '
+        'Button_mapZoomOUT
+        '
+        Me.Button_mapZoomOUT.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_mapZoomOUT.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button_mapZoomOUT.Location = New System.Drawing.Point(11, 122)
+        Me.Button_mapZoomOUT.Name = "Button_mapZoomOUT"
+        Me.Button_mapZoomOUT.Size = New System.Drawing.Size(25, 25)
+        Me.Button_mapZoomOUT.TabIndex = 12
+        Me.Button_mapZoomOUT.Text = "-"
+        Me.Button_mapZoomOUT.UseVisualStyleBackColor = True
+        '
+        'Button_mapZoomIN
+        '
+        Me.Button_mapZoomIN.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_mapZoomIN.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button_mapZoomIN.Location = New System.Drawing.Point(11, 71)
+        Me.Button_mapZoomIN.Name = "Button_mapZoomIN"
+        Me.Button_mapZoomIN.Size = New System.Drawing.Size(25, 25)
+        Me.Button_mapZoomIN.TabIndex = 11
+        Me.Button_mapZoomIN.Text = "+"
+        Me.Button_mapZoomIN.UseVisualStyleBackColor = True
+        '
+        'Label_BuoyFacing
+        '
+        Me.Label_BuoyFacing.AutoSize = True
+        Me.Label_BuoyFacing.Font = New System.Drawing.Font("微軟正黑體", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label_BuoyFacing.Location = New System.Drawing.Point(544, 150)
+        Me.Label_BuoyFacing.Name = "Label_BuoyFacing"
+        Me.Label_BuoyFacing.Size = New System.Drawing.Size(45, 42)
+        Me.Label_BuoyFacing.TabIndex = 9
+        Me.Label_BuoyFacing.Text = "N"
         '
         'PictureBox3
         '
@@ -416,11 +546,20 @@ Partial Class Form1
         Me.PictureBox3.TabIndex = 9
         Me.PictureBox3.TabStop = False
         '
+        'TextBox_MapZoom
+        '
+        Me.TextBox_MapZoom.Location = New System.Drawing.Point(523, 419)
+        Me.TextBox_MapZoom.Name = "TextBox_MapZoom"
+        Me.TextBox_MapZoom.Size = New System.Drawing.Size(50, 29)
+        Me.TextBox_MapZoom.TabIndex = 10
+        Me.TextBox_MapZoom.Text = "15"
+        Me.TextBox_MapZoom.Visible = False
+        '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("微軟正黑體", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label13.Location = New System.Drawing.Point(598, 61)
+        Me.Label13.Location = New System.Drawing.Point(607, 95)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(17, 18)
         Me.Label13.TabIndex = 10
@@ -440,12 +579,12 @@ Partial Class Form1
         Me.PictureBox2.TabIndex = 9
         Me.PictureBox2.TabStop = False
         '
-        'TextBox4
+        'TextBox_Altitude
         '
-        Me.TextBox4.Location = New System.Drawing.Point(523, 28)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(103, 29)
-        Me.TextBox4.TabIndex = 7
+        Me.TextBox_Altitude.Location = New System.Drawing.Point(521, 26)
+        Me.TextBox_Altitude.Name = "TextBox_Altitude"
+        Me.TextBox_Altitude.Size = New System.Drawing.Size(87, 29)
+        Me.TextBox_Altitude.TabIndex = 7
         '
         'TextBox_Lontitude
         '
@@ -495,24 +634,26 @@ Partial Class Form1
         Me.Label10.TabIndex = 2
         Me.Label10.Text = "Latitude"
         '
-        'Label11
+        'Label_BuoyFacingAngle
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("微軟正黑體", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label11.Location = New System.Drawing.Point(523, 74)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(78, 42)
-        Me.Label11.TabIndex = 8
-        Me.Label11.Text = "000"
+        Me.Label_BuoyFacingAngle.AutoSize = True
+        Me.Label_BuoyFacingAngle.Font = New System.Drawing.Font("微軟正黑體", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label_BuoyFacingAngle.Location = New System.Drawing.Point(532, 108)
+        Me.Label_BuoyFacingAngle.Name = "Label_BuoyFacingAngle"
+        Me.Label_BuoyFacingAngle.Size = New System.Drawing.Size(78, 42)
+        Me.Label_BuoyFacingAngle.TabIndex = 8
+        Me.Label_BuoyFacingAngle.Text = "000"
+        Me.Label_BuoyFacingAngle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'GroupBox5
         '
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox5.Controls.Add(Me.TextBox3)
+        Me.GroupBox5.Controls.Add(Me.Label_titlePRESSURE)
+        Me.GroupBox5.Controls.Add(Me.TextBox_BuoyTemp)
         Me.GroupBox5.Controls.Add(Me.Chart_Tempurature)
-        Me.GroupBox5.Controls.Add(Me.TextBox2)
-        Me.GroupBox5.Controls.Add(Me.TextBox1)
-        Me.GroupBox5.Controls.Add(Me.Label7)
+        Me.GroupBox5.Controls.Add(Me.TextBox_VehicleTemp)
+        Me.GroupBox5.Controls.Add(Me.TextBox_VehicleOUTtemp)
+        Me.GroupBox5.Controls.Add(Me.Label_VehicleTemp)
         Me.GroupBox5.Controls.Add(Me.Label6)
         Me.GroupBox5.Controls.Add(Me.Label5)
         Me.GroupBox5.Font = New System.Drawing.Font("Meiryo UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -524,110 +665,83 @@ Partial Class Form1
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Tempurature"
         '
-        'TextBox3
+        'Label_titlePRESSURE
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(186, 79)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(42, 27)
-        Me.TextBox3.TabIndex = 7
+        Me.Label_titlePRESSURE.AutoSize = True
+        Me.Label_titlePRESSURE.BackColor = System.Drawing.Color.DarkCyan
+        Me.Label_titlePRESSURE.Font = New System.Drawing.Font("Meiryo UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_titlePRESSURE.Location = New System.Drawing.Point(6, 126)
+        Me.Label_titlePRESSURE.Name = "Label_titlePRESSURE"
+        Me.Label_titlePRESSURE.Size = New System.Drawing.Size(190, 44)
+        Me.Label_titlePRESSURE.TabIndex = 13
+        Me.Label_titlePRESSURE.Text = "Atmospheric pressure" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "On Buoy:"
+        Me.Label_titlePRESSURE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TextBox_BuoyTemp
+        '
+        Me.TextBox_BuoyTemp.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox_BuoyTemp.Location = New System.Drawing.Point(186, 79)
+        Me.TextBox_BuoyTemp.Name = "TextBox_BuoyTemp"
+        Me.TextBox_BuoyTemp.Size = New System.Drawing.Size(42, 27)
+        Me.TextBox_BuoyTemp.TabIndex = 7
         '
         'Chart_Tempurature
         '
         Me.Chart_Tempurature.BackColor = System.Drawing.Color.Silver
         Me.Chart_Tempurature.BorderlineColor = System.Drawing.Color.Gainsboro
         Me.Chart_Tempurature.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
-        CustomLabel4.Text = "-1s"
-        CustomLabel5.Text = "-2s"
-        CustomLabel6.Text = "-3s"
-        ChartArea2.AxisX.CustomLabels.Add(CustomLabel4)
-        ChartArea2.AxisX.CustomLabels.Add(CustomLabel5)
-        ChartArea2.AxisX.CustomLabels.Add(CustomLabel6)
-        ChartArea2.AxisY.LineWidth = 2
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart_Tempurature.ChartAreas.Add(ChartArea2)
-        Me.Chart_Tempurature.Location = New System.Drawing.Point(235, 23)
+        ChartArea7.AxisY.LineWidth = 2
+        ChartArea7.Name = "ChartArea1"
+        Me.Chart_Tempurature.ChartAreas.Add(ChartArea7)
+        Me.Chart_Tempurature.Location = New System.Drawing.Point(239, 23)
         Me.Chart_Tempurature.Name = "Chart_Tempurature"
-        Series4.BorderWidth = 3
-        Series4.ChartArea = "ChartArea1"
-        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series4.Name = "Series1"
-        Series4.Points.Add(DataPoint34)
-        Series4.Points.Add(DataPoint35)
-        Series4.Points.Add(DataPoint36)
-        Series4.Points.Add(DataPoint37)
-        Series4.Points.Add(DataPoint38)
-        Series4.Points.Add(DataPoint39)
-        Series4.Points.Add(DataPoint40)
-        Series4.Points.Add(DataPoint41)
-        Series4.Points.Add(DataPoint42)
-        Series4.Points.Add(DataPoint43)
-        Series4.Points.Add(DataPoint44)
-        Series5.BorderWidth = 3
-        Series5.ChartArea = "ChartArea1"
-        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series5.Name = "Series2"
-        Series5.Points.Add(DataPoint45)
-        Series5.Points.Add(DataPoint46)
-        Series5.Points.Add(DataPoint47)
-        Series5.Points.Add(DataPoint48)
-        Series5.Points.Add(DataPoint49)
-        Series5.Points.Add(DataPoint50)
-        Series5.Points.Add(DataPoint51)
-        Series5.Points.Add(DataPoint52)
-        Series5.Points.Add(DataPoint53)
-        Series5.Points.Add(DataPoint54)
-        Series5.Points.Add(DataPoint55)
-        Series6.BorderWidth = 3
-        Series6.ChartArea = "ChartArea1"
-        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series6.Name = "Series3"
-        Series6.Points.Add(DataPoint56)
-        Series6.Points.Add(DataPoint57)
-        Series6.Points.Add(DataPoint58)
-        Series6.Points.Add(DataPoint59)
-        Series6.Points.Add(DataPoint60)
-        Series6.Points.Add(DataPoint61)
-        Series6.Points.Add(DataPoint62)
-        Series6.Points.Add(DataPoint63)
-        Series6.Points.Add(DataPoint64)
-        Series6.Points.Add(DataPoint65)
-        Series6.Points.Add(DataPoint66)
-        Me.Chart_Tempurature.Series.Add(Series4)
-        Me.Chart_Tempurature.Series.Add(Series5)
-        Me.Chart_Tempurature.Series.Add(Series6)
+        Series19.BorderWidth = 3
+        Series19.ChartArea = "ChartArea1"
+        Series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series19.Name = "Temp_OutsideVehicle"
+        Series20.BorderWidth = 3
+        Series20.ChartArea = "ChartArea1"
+        Series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series20.Name = "Temp_InsideVehicle"
+        Series21.BorderWidth = 3
+        Series21.ChartArea = "ChartArea1"
+        Series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series21.Name = "Temp_Buoy"
+        Me.Chart_Tempurature.Series.Add(Series19)
+        Me.Chart_Tempurature.Series.Add(Series20)
+        Me.Chart_Tempurature.Series.Add(Series21)
         Me.Chart_Tempurature.Size = New System.Drawing.Size(391, 171)
         Me.Chart_Tempurature.TabIndex = 11
         Me.Chart_Tempurature.Text = "Chart1"
         '
-        'TextBox2
+        'TextBox_VehicleTemp
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(186, 51)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(42, 27)
-        Me.TextBox2.TabIndex = 6
+        Me.TextBox_VehicleTemp.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox_VehicleTemp.Location = New System.Drawing.Point(186, 51)
+        Me.TextBox_VehicleTemp.Name = "TextBox_VehicleTemp"
+        Me.TextBox_VehicleTemp.Size = New System.Drawing.Size(42, 27)
+        Me.TextBox_VehicleTemp.TabIndex = 6
         '
-        'TextBox1
+        'TextBox_VehicleOUTtemp
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(186, 23)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(42, 27)
-        Me.TextBox1.TabIndex = 5
+        Me.TextBox_VehicleOUTtemp.BackColor = System.Drawing.Color.White
+        Me.TextBox_VehicleOUTtemp.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox_VehicleOUTtemp.Location = New System.Drawing.Point(186, 23)
+        Me.TextBox_VehicleOUTtemp.Name = "TextBox_VehicleOUTtemp"
+        Me.TextBox_VehicleOUTtemp.Size = New System.Drawing.Size(42, 27)
+        Me.TextBox_VehicleOUTtemp.TabIndex = 5
         '
-        'Label7
+        'Label_VehicleTemp
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.DarkOrange
-        Me.Label7.Font = New System.Drawing.Font("Meiryo UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(7, 54)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(158, 22)
-        Me.Label7.TabIndex = 4
-        Me.Label7.Text = "Inside the Vehicle"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label_VehicleTemp.AutoSize = True
+        Me.Label_VehicleTemp.BackColor = System.Drawing.Color.DarkOrange
+        Me.Label_VehicleTemp.Font = New System.Drawing.Font("Meiryo UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_VehicleTemp.Location = New System.Drawing.Point(7, 54)
+        Me.Label_VehicleTemp.Name = "Label_VehicleTemp"
+        Me.Label_VehicleTemp.Size = New System.Drawing.Size(158, 22)
+        Me.Label_VehicleTemp.TabIndex = 4
+        Me.Label_VehicleTemp.Text = "Inside the Vehicle"
+        Me.Label_VehicleTemp.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label6
         '
@@ -663,8 +777,10 @@ Partial Class Form1
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Label_DATAreceiveTitle)
+        Me.GroupBox3.Controls.Add(Me.Label_DATAreceive)
         Me.GroupBox3.Controls.Add(Me.RichTextBox_MessageFlow)
-        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.Label_NOWDATAtitle)
         Me.GroupBox3.Controls.Add(Me.LabelNOW)
         Me.GroupBox3.Controls.Add(Me.RichTextBox_Message)
         Me.GroupBox3.Location = New System.Drawing.Point(721, 742)
@@ -674,6 +790,24 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Message"
         '
+        'Label_DATAreceiveTitle
+        '
+        Me.Label_DATAreceiveTitle.AutoSize = True
+        Me.Label_DATAreceiveTitle.Location = New System.Drawing.Point(9, 184)
+        Me.Label_DATAreceiveTitle.Name = "Label_DATAreceiveTitle"
+        Me.Label_DATAreceiveTitle.Size = New System.Drawing.Size(132, 15)
+        Me.Label_DATAreceiveTitle.TabIndex = 4
+        Me.Label_DATAreceiveTitle.Text = "NOW RECEIVING : "
+        '
+        'Label_DATAreceive
+        '
+        Me.Label_DATAreceive.AutoSize = True
+        Me.Label_DATAreceive.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.Label_DATAreceive.Location = New System.Drawing.Point(147, 184)
+        Me.Label_DATAreceive.Name = "Label_DATAreceive"
+        Me.Label_DATAreceive.Size = New System.Drawing.Size(0, 15)
+        Me.Label_DATAreceive.TabIndex = 3
+        '
         'RichTextBox_MessageFlow
         '
         Me.RichTextBox_MessageFlow.Location = New System.Drawing.Point(263, 24)
@@ -682,14 +816,14 @@ Partial Class Form1
         Me.RichTextBox_MessageFlow.TabIndex = 2
         Me.RichTextBox_MessageFlow.Text = ""
         '
-        'Label4
+        'Label_NOWDATAtitle
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 156)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(91, 15)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "NOW DATA :"
+        Me.Label_NOWDATAtitle.AutoSize = True
+        Me.Label_NOWDATAtitle.Location = New System.Drawing.Point(9, 156)
+        Me.Label_NOWDATAtitle.Name = "Label_NOWDATAtitle"
+        Me.Label_NOWDATAtitle.Size = New System.Drawing.Size(91, 15)
+        Me.Label_NOWDATAtitle.TabIndex = 1
+        Me.Label_NOWDATAtitle.Text = "NOW DATA :"
         '
         'RichTextBox_Message
         '
@@ -726,6 +860,7 @@ Partial Class Form1
         Me.ComboBox_BaudSelect.Name = "ComboBox_BaudSelect"
         Me.ComboBox_BaudSelect.Size = New System.Drawing.Size(121, 30)
         Me.ComboBox_BaudSelect.TabIndex = 1
+        Me.ComboBox_BaudSelect.Text = "19200"
         '
         'Button_VideoSet
         '
@@ -789,6 +924,7 @@ Partial Class Form1
         'ComboBox_PortSelect
         '
         Me.ComboBox_PortSelect.FormattingEnabled = True
+        Me.ComboBox_PortSelect.ImeMode = System.Windows.Forms.ImeMode.Disable
         Me.ComboBox_PortSelect.Location = New System.Drawing.Point(128, 33)
         Me.ComboBox_PortSelect.Name = "ComboBox_PortSelect"
         Me.ComboBox_PortSelect.Size = New System.Drawing.Size(121, 30)
@@ -800,33 +936,80 @@ Partial Class Form1
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(67, 4)
         '
-        'TextBox_MapZoom
-        '
-        Me.TextBox_MapZoom.Location = New System.Drawing.Point(687, 450)
-        Me.TextBox_MapZoom.Name = "TextBox_MapZoom"
-        Me.TextBox_MapZoom.Size = New System.Drawing.Size(100, 25)
-        Me.TextBox_MapZoom.TabIndex = 10
-        Me.TextBox_MapZoom.Text = "15"
-        '
         'PictureBox1
         '
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.PictureBox1.Location = New System.Drawing.Point(687, 33)
+        Me.PictureBox1.Location = New System.Drawing.Point(6, 24)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(963, 681)
+        Me.PictureBox1.Size = New System.Drawing.Size(951, 559)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
-        'Button_BuoyReelStop
+        'Timer_DriverConnectionCheck
         '
-        Me.Button_BuoyReelStop.Location = New System.Drawing.Point(147, 56)
-        Me.Button_BuoyReelStop.Name = "Button_BuoyReelStop"
-        Me.Button_BuoyReelStop.Size = New System.Drawing.Size(40, 40)
-        Me.Button_BuoyReelStop.TabIndex = 7
-        Me.Button_BuoyReelStop.Text = "≡"
-        Me.Button_BuoyReelStop.UseVisualStyleBackColor = True
+        Me.Timer_DriverConnectionCheck.Interval = 5000
+        '
+        'Timer_BuoyConnectionCheck
+        '
+        Me.Timer_BuoyConnectionCheck.Interval = 5000
+        '
+        'GroupBox_Video
+        '
+        Me.GroupBox_Video.Controls.Add(Me.PictureBox1)
+        Me.GroupBox_Video.Font = New System.Drawing.Font("Meiryo UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox_Video.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox_Video.Location = New System.Drawing.Point(687, 51)
+        Me.GroupBox_Video.Name = "GroupBox_Video"
+        Me.GroupBox_Video.Size = New System.Drawing.Size(963, 638)
+        Me.GroupBox_Video.TabIndex = 11
+        Me.GroupBox_Video.TabStop = False
+        Me.GroupBox_Video.Text = "Main Camera on Vehicle"
+        '
+        'Timer_TemperatureRecorder
+        '
+        Me.Timer_TemperatureRecorder.Interval = 1000
+        '
+        'Chart_TemperatureBigger
+        '
+        Me.Chart_TemperatureBigger.BackColor = System.Drawing.Color.Silver
+        Me.Chart_TemperatureBigger.BorderlineColor = System.Drawing.Color.Gainsboro
+        Me.Chart_TemperatureBigger.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
+        ChartArea8.AxisY.LineWidth = 2
+        ChartArea8.Name = "ChartArea1"
+        Me.Chart_TemperatureBigger.ChartAreas.Add(ChartArea8)
+        Me.Chart_TemperatureBigger.Location = New System.Drawing.Point(251, 324)
+        Me.Chart_TemperatureBigger.Name = "Chart_TemperatureBigger"
+        Series22.BorderWidth = 3
+        Series22.ChartArea = "ChartArea1"
+        Series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series22.Name = "Temp_OutsideVehicle"
+        Series23.BorderWidth = 3
+        Series23.ChartArea = "ChartArea1"
+        Series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series23.Name = "Temp_InsideVehicle"
+        Series24.BorderWidth = 3
+        Series24.ChartArea = "ChartArea1"
+        Series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series24.Name = "Temp_Buoy"
+        Me.Chart_TemperatureBigger.Series.Add(Series22)
+        Me.Chart_TemperatureBigger.Series.Add(Series23)
+        Me.Chart_TemperatureBigger.Series.Add(Series24)
+        Me.Chart_TemperatureBigger.Size = New System.Drawing.Size(1202, 436)
+        Me.Chart_TemperatureBigger.TabIndex = 12
+        Me.Chart_TemperatureBigger.Text = "Chart1"
+        Me.Chart_TemperatureBigger.Visible = False
+        '
+        'Label17
+        '
+        Me.Label17.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(608, 31)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(27, 22)
+        Me.Label17.TabIndex = 18
+        Me.Label17.Text = "m"
         '
         'Form1
         '
@@ -836,8 +1019,8 @@ Partial Class Form1
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ClientSize = New System.Drawing.Size(1662, 1003)
-        Me.Controls.Add(Me.TextBox_MapZoom)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Chart_TemperatureBigger)
+        Me.Controls.Add(Me.GroupBox_Video)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox4)
@@ -853,6 +1036,8 @@ Partial Class Form1
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox_ControlPanel.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
@@ -870,6 +1055,8 @@ Partial Class Form1
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox_Video.ResumeLayout(False)
+        CType(Me.Chart_TemperatureBigger, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -903,22 +1090,22 @@ Partial Class Form1
     Friend WithEvents Button_Connect As Button
     Friend WithEvents LabelNOW As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
+    Friend WithEvents Label_NOWDATAtitle As Label
     Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TextBox_Altitude As TextBox
     Friend WithEvents TextBox_Lontitude As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label7 As Label
+    Friend WithEvents TextBox_BuoyTemp As TextBox
+    Friend WithEvents TextBox_VehicleTemp As TextBox
+    Friend WithEvents TextBox_VehicleOUTtemp As TextBox
+    Friend WithEvents Label_VehicleTemp As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox_Latitude As TextBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label11 As Label
+    Friend WithEvents Label_BuoyFacing As Label
+    Friend WithEvents Label_BuoyFacingAngle As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents RichTextBox_MessageFlow As RichTextBox
     Friend WithEvents PictureBox1 As PictureBox
@@ -926,7 +1113,6 @@ Partial Class Form1
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents TextBox_MapZoom As TextBox
     Friend WithEvents Chart_Tempurature As DataVisualization.Charting.Chart
     Friend WithEvents GroupBox7 As GroupBox
@@ -938,4 +1124,26 @@ Partial Class Form1
     Friend WithEvents Button_BuoyForward As Button
     Friend WithEvents Button_VehicleLight As Button
     Friend WithEvents Button_BuoyReelStop As Button
+    Friend WithEvents Label_DATAreceiveTitle As Label
+    Friend WithEvents Label_DATAreceive As Label
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel6 As ToolStripStatusLabel
+    Friend WithEvents Timer_DriverConnectionCheck As Timer
+    Friend WithEvents Timer_BuoyConnectionCheck As Timer
+    Friend WithEvents GroupBox_Video As GroupBox
+    Friend WithEvents Button_mapZoomOUT As Button
+    Friend WithEvents Button_mapZoomIN As Button
+    Friend WithEvents Timer_TemperatureRecorder As Timer
+    Friend WithEvents Chart_TemperatureBigger As DataVisualization.Charting.Chart
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label_VehicleFacing As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label_VehicleFacingAngel As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label_titlePRESSURE As Label
+    Friend WithEvents Label17 As Label
 End Class
