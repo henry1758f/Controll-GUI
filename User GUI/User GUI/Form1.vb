@@ -17,7 +17,11 @@ Public Class Form1
     Dim Connect_Driver As Boolean       'The Connect Status to Driver , Set 1 Before Timer_DriverConnectionCheck_Tick
     Dim Connect_Buoy As Boolean         'The Connect Status to Buoy , Set 1 Before Timer_BuoyConnectionCheck_Tick
     Dim Connect_Vehicle As Boolean      'The Connect Status to Vehicle , Also Set 1 Before Timer_BuoyConnectionCheck_Tick
+    Dim GPS_Connection As Boolean       'GPS Connection. To enable or Disable Calculating absolute altitude by Atmospheric pressure
     Dim retrying_num As Integer         'Interger of counting the retrying times of sending '0'
+    Dim Pressure_SeaLevel As Double = 1013.25    ' Pressure at Sea Level that can caculate what the altitude it be (in hPa)
+
+    Dim TempRecordingCounter As Integer = 0 ' Counter in second to recording Temperature in timeline
 
     Dim CAMERA As VideoCaptureDevice    'Video Camera
     Dim bmp As Bitmap
@@ -42,7 +46,6 @@ Public Class Form1
         ComboBox_BaudSelect.Items.Add("115200")
         PictureBox3.BackgroundImage = PictureBox2.Image
         'MakeTransparent()
-
     End Sub
 
     '*************************************************************
@@ -64,7 +67,6 @@ Public Class Form1
         End If
 
     End Sub
-
     Private Sub ToolStripStatusLabel_BuoyConnection(ByVal type)
         If type = 0 Then
             ToolStripStatusLabel4.BackColor = Color.Red
@@ -79,6 +81,10 @@ Public Class Form1
             ToolStripStatusLabel4.BackColor = Color.Yellow
             ToolStripStatusLabel4.ForeColor = Color.Black
             ToolStripStatusLabel4.Text = "Lost Conection! Retrying...(" + retrying_num.ToString + ") "
+        ElseIf type = 3 Then
+            ToolStripStatusLabel4.BackColor = Color.Yellow
+            ToolStripStatusLabel4.ForeColor = Color.Black
+            ToolStripStatusLabel4.Text = " Buoy Upside Down! "
         End If
 
     End Sub
@@ -95,6 +101,10 @@ Public Class Form1
             ToolStripStatusLabel6.BackColor = Color.Yellow
             ToolStripStatusLabel6.ForeColor = Color.Black
             ToolStripStatusLabel6.Text = "Lost Conection! Retrying...(" + retrying_num.ToString + ") "
+        ElseIf type = 3 Then
+            ToolStripStatusLabel6.BackColor = Color.Yellow
+            ToolStripStatusLabel6.ForeColor = Color.Black
+            ToolStripStatusLabel6.Text = " Vehicle Upside Down! "
         End If
 
     End Sub
@@ -120,6 +130,7 @@ Public Class Form1
             Timer_BuoyConnectionCheck.Enabled = False
             ToolStripStatusLabel_DriverConnection(0)
             ToolStripStatusLabel_BuoyConnection(0)
+            ' TODO :    CAMERA.Stop()
         Catch ex As Exception
             MsgBox("CAUTION!" + vbCrLf + ex.Message, MsgBoxStyle.Information, "CAUTION!")
             ConnectStatus = False
@@ -131,6 +142,9 @@ Public Class Form1
             Timer_DriverConnectionCheck.Enabled = False
             Timer_BuoyConnectionCheck.Enabled = False
         End Try
+        Timer_TemperatureRecorder.Enabled = False
+
+
     End Sub
     Private Sub SerialPortOpenProcess()         ' Processing of Opening the Serial Port
         Try
@@ -149,7 +163,12 @@ Public Class Form1
         Catch ex As Exception
             MsgBox("ERROR!" + vbCrLf + ex.Message, MsgBoxStyle.Information, "Error!")
         End Try
-
+        Chart_Tempurature.Series("Temp_Buoy").Points.Clear()
+        Chart_Tempurature.Series("Temp_InsideVehicle").Points.Clear()
+        Chart_Tempurature.Series("Temp_OutsideVehicle").Points.Clear()
+        Chart_TemperatureBigger.Series("Temp_Buoy").Points.Clear()
+        Chart_TemperatureBigger.Series("Temp_InsideVehicle").Points.Clear()
+        Chart_TemperatureBigger.Series("Temp_OutsideVehicle").Points.Clear()
     End Sub
     Private Sub Button_Connect_Click(sender As Object, e As EventArgs) Handles Button_Connect.Click
 
@@ -260,35 +279,145 @@ Public Class Form1
             If Timer_BuoyConnectionCheck.Enabled = False Then
                 Timer_BuoyConnectionCheck.Enabled = True
             End If
+            Timer_TemperatureRecorder.Enabled = True
             ToolStripStatusLabel_BuoyConnection(1)
         End If
-        If LabelNOW.Text.Contains("$VEHICLE_CONNECTED$~") Then
+        If LabelNOW.Text.Contains("$VEHI_CONNECTED$~") Then
             Connect_Vehicle = True
             If Timer_BuoyConnectionCheck.Enabled = False Then
                 Timer_BuoyConnectionCheck.Enabled = True
             End If
             ToolStripStatusLabel_VehicleConnection(1)
         End If
-        If LabelNOW.Text.Contains("$BUOY_TEMP:") Then
+        If LabelNOW.Text.Contains("$BUOY_TEMP:") Then           ' Buoy Temperature print
             Dim BuoyTempCheck As String
             Connect_Buoy = True
             If Timer_BuoyConnectionCheck.Enabled = False Then
                 Timer_BuoyConnectionCheck.Enabled = True
             End If
             ToolStripStatusLabel_BuoyConnection(1)
-
-
-
             'only 2
             BuoyTempCheck = LabelNOW.Text
             BuoyTempCheck = BuoyTempCheck.Remove(0, Len("$BUOY_TEMP:"))
             BuoyTempCheck = BuoyTempCheck.Remove(BuoyTempCheck.IndexOf("$~"), 2)
-            'BuoyTempCheck = BuoyTempCheck.Insert(Len(BuoyTempCheck) - 1, ".")
             TextBox_BuoyTemp.Text = BuoyTempCheck
+        End If
+        If LabelNOW.Text.Contains("$VEHI_TEMPOUT:") Then        ' Outside from Vehicle's Temperature Print
+            Dim VehicleoutTempCheck As String
+            VehicleoutTempCheck = LabelNOW.Text
+            VehicleoutTempCheck = VehicleoutTempCheck.Remove(0, Len("$VEHI_TEMPOUT:"))
+            VehicleoutTempCheck = VehicleoutTempCheck.Remove(VehicleoutTempCheck.IndexOf("$~"), 2)
+            TextBox_VehicleOUTtemp.Text = VehicleoutTempCheck
+        End If
+        If LabelNOW.Text.Contains("$VEHI_TEMPIN:") Then         ' Inside of Vehicle's Temperature print
+            Dim VehicleTempCheck As String
+            VehicleTempCheck = LabelNOW.Text
+            VehicleTempCheck = VehicleTempCheck.Remove(0, Len("$VEHI_TEMPIN:"))
+            VehicleTempCheck = VehicleTempCheck.Remove(VehicleTempCheck.IndexOf("$~"), 2)
+            TextBox_VehicleTemp.Text = VehicleTempCheck
+        End If
+        If LabelNOW.Text.Contains("$BUOY_NGPS$~") Then         ' If Buoy has no GPS signal...
+            TextBox_Lontitude.BackColor = Color.LightPink
+            TextBox_Latitude.BackColor = Color.LightPink
+            GPS_Connection = False
+        End If
+        If LabelNOW.Text.Contains("$BUOY_YGPS$~") Then         ' If Buoy has no GPS signal...
+            TextBox_Lontitude.BackColor = Color.LightPink
+            TextBox_Latitude.BackColor = Color.LightPink
+            GPS_Connection = True
+        End If
+        If LabelNOW.Text.Contains("$BUOY_PRES:") Then         ' Print Buoy's Atmospheric pressure
+            Dim BuoyPressureCheck As String
+            Dim BPCaculate As Double
+            BuoyPressureCheck = LabelNOW.Text
+            BuoyPressureCheck = BuoyPressureCheck.Remove(0, Len("$BUOY_PRES:"))
+            BuoyPressureCheck = BuoyPressureCheck.Remove(BuoyPressureCheck.IndexOf("$~"), 2)
+            Try
+                BPCaculate = BuoyPressureCheck / 10
+                If GPS_Connection = False Then
+                    TextBox_Altitude.Text = Math.Round(43300 * (1 - (BPCaculate / Pressure_SeaLevel) ^ (1 / 5.255)), 1)
+                    TextBox_Altitude.BackColor = Color.DarkCyan
+                    Label_titlePRESSURE.Text = "Atmospheric pressure" + vbCrLf + "On Buoy: " + BuoyPressureCheck.ToString + " hPa"
+                End If
+            Catch ex As Exception
+                    MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+                End Try
 
-            'TextBox_BuoyTemp.Text = BuoyTempCheck.ElementAt(Len("$BUOY_TEMP:"))
 
         End If
+        If LabelNOW.Text.Contains("$BUOY_FDEG:") Then         ' Facing Direction of Buoy
+            Dim BuoyFacingCheck As String
+            Dim FacingAngelCaculate As Double
+            BuoyFacingCheck = LabelNOW.Text
+            BuoyFacingCheck = BuoyFacingCheck.Remove(0, Len("$BUOY_FDEG:"))
+            BuoyFacingCheck = BuoyFacingCheck.Remove(BuoyFacingCheck.IndexOf("$~"), 2)
+            Try
+                FacingAngelCaculate = BuoyFacingCheck
+                FacingAngelCaculate = FacingAngelCaculate * (360 / 255)
+                FacingAngelCaculate = Math.Round(FacingAngelCaculate)
+                If FacingAngelCaculate > 359 Then
+                    FacingAngelCaculate = 0
+                End If
+                Label_BuoyFacingAngle.Text = FacingAngelCaculate
+                If FacingAngelCaculate < 22.5 Or FacingAngelCaculate >= 337.5 Then
+                    Label_BuoyFacing.Text = "N"
+                ElseIf FacingAngelCaculate >= 22.5 And FacingAngelCaculate < 67.5 Then
+                    Label_BuoyFacing.Text = "NE"
+                ElseIf FacingAngelCaculate >= 67.5 And FacingAngelCaculate < 112.5 Then
+                    Label_BuoyFacing.Text = "E"
+                ElseIf FacingAngelCaculate >= 112.5 And FacingAngelCaculate < 157.5 Then
+                    Label_BuoyFacing.Text = "ES"
+                ElseIf FacingAngelCaculate >= 157.5 And FacingAngelCaculate < 202.5 Then
+                    Label_BuoyFacing.Text = "S"
+                ElseIf FacingAngelCaculate >= 202.5 And FacingAngelCaculate < 247.5 Then
+                    Label_BuoyFacing.Text = "WS"
+                ElseIf FacingAngelCaculate >= 247.5 And FacingAngelCaculate < 292.5 Then
+                    Label_BuoyFacing.Text = "W"
+                ElseIf FacingAngelCaculate >= 292.5 And FacingAngelCaculate < 337.5 Then
+                    Label_BuoyFacing.Text = "NW"
+                End If
+            Catch ex As Exception
+                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+            End Try
+
+        End If
+        If LabelNOW.Text.Contains("$VEHI_FDEG:") Then         ' Facing Direction of Vehicle
+            Dim VehicleFacingCheck As String
+            Dim FacingAngelCaculate As Double
+            VehicleFacingCheck = LabelNOW.Text
+            VehicleFacingCheck = VehicleFacingCheck.Remove(0, Len("$VEHI_FDEG:"))
+            VehicleFacingCheck = VehicleFacingCheck.Remove(VehicleFacingCheck.IndexOf("$~"), 2)
+            Try
+                FacingAngelCaculate = VehicleFacingCheck
+                FacingAngelCaculate = FacingAngelCaculate * (360 / 255)
+                FacingAngelCaculate = Math.Round(FacingAngelCaculate)
+                If FacingAngelCaculate > 359 Then
+                    FacingAngelCaculate = 0
+                End If
+                Label_VehicleFacingAngel.Text = FacingAngelCaculate
+                If FacingAngelCaculate < 22.5 Or FacingAngelCaculate >= 337.5 Then
+                    Label_VehicleFacing.Text = "N"
+                ElseIf FacingAngelCaculate >= 22.5 And FacingAngelCaculate < 67.5 Then
+                    Label_VehicleFacing.Text = "NE"
+                ElseIf FacingAngelCaculate >= 67.5 And FacingAngelCaculate < 112.5 Then
+                    Label_VehicleFacing.Text = "E"
+                ElseIf FacingAngelCaculate >= 112.5 And FacingAngelCaculate < 157.5 Then
+                    Label_VehicleFacing.Text = "ES"
+                ElseIf FacingAngelCaculate >= 157.5 And FacingAngelCaculate < 202.5 Then
+                    Label_VehicleFacing.Text = "S"
+                ElseIf FacingAngelCaculate >= 202.5 And FacingAngelCaculate < 247.5 Then
+                    Label_VehicleFacing.Text = "WS"
+                ElseIf FacingAngelCaculate >= 247.5 And FacingAngelCaculate < 292.5 Then
+                    Label_VehicleFacing.Text = "W"
+                ElseIf FacingAngelCaculate >= 292.5 And FacingAngelCaculate < 337.5 Then
+                    Label_VehicleFacing.Text = "NW"
+                End If
+            Catch ex As Exception
+                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+            End Try
+
+        End If
+
     End Sub
     '********************************************************
     '************************* About Video Connection and setting
@@ -335,12 +464,12 @@ Public Class Form1
         PictureBox2.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=" + TextBox_Latitude.Text + "," + TextBox_Lontitude.Text + "&zoom=" + TextBox_MapZoom.Text + "&size=511x396&key=AIzaSyBDNQ2wZ3Lt73qKvn6lfzztrsc_X7ixBdM"
     End Sub
 
-    Private Sub PictureBox3_MouseClick(sender As Object, e As MouseEventArgs) Handles PictureBox3.MouseClick
+    Private Sub Button_mapZoomIN_MouseClickk(sender As Object, e As MouseEventArgs) Handles Button_mapZoomIN.MouseClick
         TextBox_MapZoom.Text = TextBox_MapZoom.Text + 1
         ' PictureBox2.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=" + TextBox_Latitude.Text + "," + TextBox_Lontitude.Text + "&zoom=" + TextBox_MapZoom.Text + "&size=1200x674&key=AIzaSyBDNQ2wZ3Lt73qKvn6lfzztrsc_X7ixBdM"
     End Sub
 
-    Private Sub PictureBox3_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles PictureBox3.MouseDoubleClick
+    Private Sub Button_mapZoomOUT_MouseClick(sender As Object, e As MouseEventArgs) Handles Button_mapZoomOUT.MouseClick
         TextBox_MapZoom.Text = TextBox_MapZoom.Text - 2
         'PictureBox2.ImageLocation = "https://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=" + TextBox_Latitude.Text + "," + TextBox_Lontitude.Text + "&zoom=" + TextBox_MapZoom.Text + "&size=1200x674&key=AIzaSyBDNQ2wZ3Lt73qKvn6lfzztrsc_X7ixBdM"
     End Sub
@@ -646,6 +775,44 @@ Public Class Form1
         Else
             MsgBox(msg_ConnectionNOTYET, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, msg_FaildConnecton)
         End If
+    End Sub
+
+    Private Sub Timer_TemperatureRecorder_Tick(sender As Object, e As EventArgs) Handles Timer_TemperatureRecorder.Tick
+        TempRecordingCounter += 1
+        If TextBox_BuoyTemp.Text IsNot vbNullString Then
+            Chart_Tempurature.Series("Temp_Buoy").Points.AddXY(TempRecordingCounter, TextBox_BuoyTemp.Text)
+            Chart_Tempurature.Series("Temp_Buoy").ChartArea = "ChartArea1"
+            Chart_TemperatureBigger.Series("Temp_Buoy").Points.AddXY(TempRecordingCounter, TextBox_BuoyTemp.Text)
+            Chart_TemperatureBigger.Series("Temp_Buoy").ChartArea = "ChartArea1"
+        Else
+
+        End If
+        If TextBox_VehicleTemp.Text IsNot vbNullString Then
+            Chart_Tempurature.Series("Temp_InsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_VehicleTemp.Text)
+            Chart_Tempurature.Series("Temp_InsideVehicle").ChartArea = "ChartArea1"
+            Chart_TemperatureBigger.Series("Temp_InsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_BuoyTemp.Text)
+            Chart_TemperatureBigger.Series("Temp_InsideVehicle").ChartArea = "ChartArea1"
+        Else
+
+        End If
+        If TextBox_VehicleOUTtemp.Text IsNot vbNullString Then
+            Chart_Tempurature.Series("Temp_OutsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_VehicleOUTtemp.Text)
+            Chart_Tempurature.Series("Temp_OutsideVehicle").ChartArea = "ChartArea1"
+            Chart_TemperatureBigger.Series("Temp_OutsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_BuoyTemp.Text)
+            Chart_TemperatureBigger.Series("Temp_OutsideVehicle").ChartArea = "ChartArea1"
+        Else
+
+        End If
+        'TextBox_BuoyTemp.Text
+
+    End Sub
+
+    Private Sub Chart_Tempurature_DoubleClick(sender As Object, e As EventArgs) Handles Chart_Tempurature.DoubleClick
+        Chart_TemperatureBigger.Visible = True
+    End Sub
+
+    Private Sub Chart_TemperatureBigger_Click(sender As Object, e As EventArgs) Handles Chart_TemperatureBigger.Click
+        Chart_TemperatureBigger.Visible = False
     End Sub
 
 
