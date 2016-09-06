@@ -416,6 +416,19 @@ Public Class Form1
             Catch ex As Exception
                 MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
             End Try
+        End If
+        If LabelNOW.Text.Contains("$BUOY_CUR:") Then            ' Print the votage of buoy
+            Dim BuoyVotageCkeck As String
+            Dim BuoyVotageCaculate As Double
+            BuoyVotageCkeck = LabelNOW.Text
+            BuoyVotageCkeck = BuoyVotageCkeck.Remove(0, Len("$BUOY_VOT:"))
+            BuoyVotageCkeck = BuoyVotageCkeck.Remove(BuoyVotageCkeck.IndexOf("$~"), 2)
+            Try
+                BuoyVotageCaculate = BuoyVotageCkeck / 10
+                ComboBox_Mode.Text = BuoyVotageCaculate
+            Catch ex As Exception
+                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+            End Try
 
         End If
 
