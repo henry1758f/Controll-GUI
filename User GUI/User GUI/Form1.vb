@@ -278,6 +278,8 @@ Public Class Form1
             Dim LatDoubleD, LatDoubleM, LatDoubleS, LonDoubleD, LonDoubleM, LonDoubleS As Double
 
             If Check_Str.StartsWith("A") Then
+                TextBox_Lontitude.BackColor = Color.LightSkyBlue
+                TextBox_Latitude.BackColor = Color.LightSkyBlue
                 GPS_Connection = True
                 Check_Str = Check_Str.Remove(0, Len("A,"))
                 Try
