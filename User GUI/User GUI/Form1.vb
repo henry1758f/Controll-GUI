@@ -24,6 +24,8 @@ Public Class Form1
 
     Dim TempRecordingCounter As Integer = 0 ' Counter in second to recording Temperature in timeline
 
+    Dim ErrorCounter As Long = 0
+
     Dim CAMERA As VideoCaptureDevice    'Video Camera
     Dim bmp As Bitmap
 
@@ -268,7 +270,7 @@ Public Class Form1
             RichTextBox_MessageFlow.Text = Label_DATAreceive.Text + vbCrLf + RichTextBox_MessageFlow.Text
             Label_DATAreceive.Text = ""
             Connect_Driver = True
-        ElseIf Label_DATAreceive.Text.StartsWith("$GPRMC,") And GPS_receiving = False Then
+        ElseIf Label_DATAreceive.Text.StartsWith("$GPRMC,") And GPS_receiving = False Then          ' GPS DataString Analysis
             LabelNOW.Text = ""
             LabelNOW.Text = Label_DATAreceive.Text
             GPS_receiving = True
@@ -400,7 +402,8 @@ Public Class Form1
 
                 End If
             Catch ex As Exception
-                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+                ErrorCounter += 1
+                'MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
             End Try
 
 
@@ -437,7 +440,8 @@ Public Class Form1
                     Label_BuoyFacing.Text = "NW"
                 End If
             Catch ex As Exception
-                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+                ErrorCounter += 1
+                'MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
             End Try
 
         End If
@@ -473,7 +477,8 @@ Public Class Form1
                     Label_VehicleFacing.Text = "NW"
                 End If
             Catch ex As Exception
-                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+                ErrorCounter += 1
+                'MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
             End Try
         End If
         If LabelNOW.Text.Contains("$BUOY_CUR:") Then            ' Print the votage of buoy
@@ -486,11 +491,12 @@ Public Class Form1
                 BuoyVotageCaculate = BuoyVotageCkeck / 10
                 ComboBox_Mode.Text = BuoyVotageCaculate
             Catch ex As Exception
-                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+                ErrorCounter += 1
+                'MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
             End Try
 
         End If
-
+        RichTextBox_Message.Text = "ERROR STREAM TIMES: " + ErrorCounter.ToString
     End Sub
     '********************************************************
     '************************* About Video Connection and setting
@@ -503,8 +509,13 @@ Public Class Form1
         End If
     End Sub
     Private Sub Captured(sender As Object, eventArgs As NewFrameEventArgs)
-        bmp = DirectCast(eventArgs.Frame.Clone(), Bitmap)
-        PictureBox1.Image = DirectCast(eventArgs.Frame.Clone(), Bitmap)
+        Try
+            bmp = DirectCast(eventArgs.Frame.Clone(), Bitmap)
+            PictureBox1.Image = DirectCast(eventArgs.Frame.Clone(), Bitmap)
+        Catch ex As Exception
+            MsgBox("CAUTION! Video Capture EXCEPTION" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "BEBUG : VIDEO Capture ERROR")
+        End Try
+
     End Sub
 
     '************************************************************
