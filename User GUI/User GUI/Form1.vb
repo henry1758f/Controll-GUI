@@ -20,8 +20,11 @@ Public Class Form1
     Dim GPS_Connection As Boolean       'GPS Connection. To enable or Disable Calculating absolute altitude by Atmospheric pressure
     Dim retrying_num As Integer         'Interger of counting the retrying times of sending '0'
     Dim Pressure_SeaLevel As Double = 1006.1    ' Pressure at Sea Level that can caculate what the altitude it be (in hPa)
+    Dim GPS_receiving As Boolean
 
     Dim TempRecordingCounter As Integer = 0 ' Counter in second to recording Temperature in timeline
+
+    Dim ErrorCounter As Long = 0
 
     Dim CAMERA As VideoCaptureDevice    'Video Camera
     Dim bmp As Bitmap
@@ -267,6 +270,70 @@ Public Class Form1
             RichTextBox_MessageFlow.Text = Label_DATAreceive.Text + vbCrLf + RichTextBox_MessageFlow.Text
             Label_DATAreceive.Text = ""
             Connect_Driver = True
+        ElseIf Label_DATAreceive.Text.StartsWith("$GPRMC,") And GPS_receiving = False Then          ' GPS DataString Analysis
+            LabelNOW.Text = ""
+            LabelNOW.Text = Label_DATAreceive.Text
+            GPS_receiving = True
+        ElseIf LabelNOW.Text.StartsWith("$GPRMC,") And GPS_receiving = True Then
+            LabelNOW.Text += Label_DATAreceive.Text
+            Dim Check_Str As String = LabelNOW.Text.Remove(0, Len("$GPRMC,195600.00,"))
+            Dim LatDoubleD, LatDoubleM, LatDoubleS, LonDoubleD, LonDoubleM, LonDoubleS As Double
+
+            If Check_Str.StartsWith("A") Then
+                TextBox_Lontitude.BackColor = Color.LightSkyBlue
+                TextBox_Latitude.BackColor = Color.LightSkyBlue
+                GPS_Connection = True
+                Check_Str = Check_Str.Remove(0, Len("A,"))
+                Try
+                    LatDoubleD = Check_Str.Remove(2, Len(Check_Str.Substring(2)))
+                    Check_Str = Check_Str.Substring(2)
+                    LatDoubleM = Check_Str.Remove(7, Len(Check_Str.Substring(7)))
+                    LatDoubleM /= 60
+                    'LatDoubleM = Check_Str.Remove(2, Len(Check_Str.Substring(2)))
+                    'LatDoubleM /= 60
+                    'Check_Str = Check_Str.Substring(3)
+                    'LatDoubleS = Check_Str.Remove(4, Len(Check_Str.Substring(4)))
+                    'LatDoubleS /= 1000
+                    'LatDoubleS /= 3600
+                    Check_Str = Check_Str.Substring(6)
+                    If (Check_Str.StartsWith("S")) Then
+                        'TextBox_Latitude.Text = Math.Round(((LatDoubleD + LatDoubleM + LatDoubleS) * -1), 6).ToString
+                        TextBox_Latitude.Text = Math.Round(((LatDoubleD + LatDoubleM) * -1), 6).ToString
+                    Else
+                        'TextBox_Latitude.Text = Math.Round((LatDoubleD + LatDoubleM + LatDoubleS), 6).ToString
+                        TextBox_Latitude.Text = Math.Round((LatDoubleD + LatDoubleM), 6).ToString
+                    End If
+                    Check_Str = Check_Str.Substring(2)
+                    LonDoubleD = Check_Str.Remove(3, Len(Check_Str.Substring(3)))
+                    Check_Str = Check_Str.Substring(3)
+                    LonDoubleM = Check_Str.Remove(7, Len(Check_Str.Substring(7)))
+                    LonDoubleM /= 60
+                    'Check_Str = Check_Str.Substring(3)
+                    'LonDoubleS = Check_Str.Remove(5, Len(Check_Str.Substring(5)))
+                    'LonDoubleS /= 1000
+                    'LonDoubleS /= 3600
+                    Check_Str = Check_Str.Substring(6)
+                    If (Check_Str.StartsWith("W")) Then
+                        'TextBox_Lontitude.Text = Math.Round(((LonDoubleD + LonDoubleM + LonDoubleS) * -1), 6).ToString
+                        TextBox_Lontitude.Text = Math.Round(((LonDoubleD + LonDoubleM) * -1), 6).ToString
+                    Else
+                        'TextBox_Lontitude.Text = Math.Round((LonDoubleD + LonDoubleM + LonDoubleS), 6).ToString
+                        TextBox_Lontitude.Text = Math.Round((LonDoubleD + LonDoubleM), 6).ToString
+                    End If
+
+                Catch ex As Exception
+
+                End Try
+
+            Else
+                TextBox_Lontitude.BackColor = Color.LightPink
+                TextBox_Latitude.BackColor = Color.LightPink
+                GPS_Connection = False
+
+            End If
+            RichTextBox_MessageFlow.Text = Label_DATAreceive.Text + vbCrLf + RichTextBox_MessageFlow.Text
+            GPS_receiving = False
+            Label_DATAreceive.Text = ""
         End If
     End Sub
     Private Sub LabelNOW_TextChanged(sender As Object, e As EventArgs) Handles LabelNOW.TextChanged
@@ -316,16 +383,16 @@ Public Class Form1
             VehicleTempCheck = VehicleTempCheck.Remove(VehicleTempCheck.IndexOf("$~"), 2)
             TextBox_VehicleTemp.Text = VehicleTempCheck
         End If
-        If LabelNOW.Text.Contains("$BUOY_NGPS$~") Then         ' If Buoy has no GPS signal...
-            TextBox_Lontitude.BackColor = Color.LightPink
-            TextBox_Latitude.BackColor = Color.LightPink
-            GPS_Connection = False
-        End If
-        If LabelNOW.Text.Contains("$BUOY_YGPS$~") Then         ' If Buoy has no GPS signal...
-            TextBox_Lontitude.BackColor = Color.LightPink
-            TextBox_Latitude.BackColor = Color.LightPink
-            GPS_Connection = True
-        End If
+        'If LabelNOW.Text.Contains("$BUOY_NGPS$~") Then         ' If Buoy has no GPS signal...
+        '    TextBox_Lontitude.BackColor = Color.LightPink
+        '    TextBox_Latitude.BackColor = Color.LightPink
+        '    GPS_Connection = False
+        'End If
+        'If LabelNOW.Text.Contains("$BUOY_YGPS$~") Then         ' If Buoy has no GPS signal...
+        '    TextBox_Lontitude.BackColor = Color.LightPink
+        '    TextBox_Latitude.BackColor = Color.LightPink
+        '    GPS_Connection = True
+        'End If
         If LabelNOW.Text.Contains("$BUOY_PRES:") Then         ' Print Buoy's Atmospheric pressure
             Dim BuoyPressureCheck As String
             Dim BPCaculate As Double
@@ -333,7 +400,7 @@ Public Class Form1
             BuoyPressureCheck = BuoyPressureCheck.Remove(0, Len("$BUOY_PRES:"))
             BuoyPressureCheck = BuoyPressureCheck.Remove(BuoyPressureCheck.IndexOf("$~"), 2)
             Try
-                BPCaculate = BuoyPressureCheck / 10
+                BPCaculate = BuoyPressureCheck
                 If GPS_Connection = False Then
                     Label_titlePRESSURE.Text = "Atmospheric pressure" + vbCrLf + "On Buoy: " + BPCaculate.ToString + " hPa"
                     TextBox_Altitude.Text = Math.Round(43300 * (1 - (BPCaculate / Pressure_SeaLevel) ^ (1 / 5.255)), 1)
@@ -341,7 +408,8 @@ Public Class Form1
 
                 End If
             Catch ex As Exception
-                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+                ErrorCounter += 1
+                'MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
             End Try
 
 
@@ -378,7 +446,8 @@ Public Class Form1
                     Label_BuoyFacing.Text = "NW"
                 End If
             Catch ex As Exception
-                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+                ErrorCounter += 1
+                'MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
             End Try
 
         End If
@@ -414,11 +483,26 @@ Public Class Form1
                     Label_VehicleFacing.Text = "NW"
                 End If
             Catch ex As Exception
-                MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+                ErrorCounter += 1
+                'MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
+            End Try
+        End If
+        If LabelNOW.Text.Contains("$BUOY_CUR:") Then            ' Print the votage of buoy
+            Dim BuoyVotageCkeck As String
+            Dim BuoyVotageCaculate As Double
+            BuoyVotageCkeck = LabelNOW.Text
+            BuoyVotageCkeck = BuoyVotageCkeck.Remove(0, Len("$BUOY_VOT:"))
+            BuoyVotageCkeck = BuoyVotageCkeck.Remove(BuoyVotageCkeck.IndexOf("$~"), 2)
+            Try
+                BuoyVotageCaculate = BuoyVotageCkeck / 10
+                ComboBox_Mode.Text = BuoyVotageCaculate
+            Catch ex As Exception
+                ErrorCounter += 1
+                'MsgBox("CAUTION! Data String Error" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "DATA STRING COLLAPSE")
             End Try
 
         End If
-
+        RichTextBox_Message.Text = "ERROR STREAM TIMES: " + ErrorCounter.ToString
     End Sub
     '********************************************************
     '************************* About Video Connection and setting
@@ -431,8 +515,13 @@ Public Class Form1
         End If
     End Sub
     Private Sub Captured(sender As Object, eventArgs As NewFrameEventArgs)
-        bmp = DirectCast(eventArgs.Frame.Clone(), Bitmap)
-        PictureBox1.Image = DirectCast(eventArgs.Frame.Clone(), Bitmap)
+        Try
+            bmp = DirectCast(eventArgs.Frame.Clone(), Bitmap)
+            PictureBox1.Image = DirectCast(eventArgs.Frame.Clone(), Bitmap)
+        Catch ex As Exception
+            MsgBox("CAUTION! Video Capture EXCEPTION" + vbCrLf + ex.Message, MsgBoxStyle.Exclamation, "BEBUG : VIDEO Capture ERROR")
+        End Try
+
     End Sub
 
     '************************************************************
