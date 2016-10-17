@@ -287,32 +287,38 @@ Public Class Form1
                 Try
                     LatDoubleD = Check_Str.Remove(2, Len(Check_Str.Substring(2)))
                     Check_Str = Check_Str.Substring(2)
-                    LatDoubleM = Check_Str.Remove(2, Len(Check_Str.Substring(2)))
+                    LatDoubleM = Check_Str.Remove(7, Len(Check_Str.Substring(7)))
                     LatDoubleM /= 60
-                    Check_Str = Check_Str.Substring(3)
-                    LatDoubleS = Check_Str.Remove(4, Len(Check_Str.Substring(4)))
-                    LatDoubleS /= 1000
-                    LatDoubleS /= 3600
+                    'LatDoubleM = Check_Str.Remove(2, Len(Check_Str.Substring(2)))
+                    'LatDoubleM /= 60
+                    'Check_Str = Check_Str.Substring(3)
+                    'LatDoubleS = Check_Str.Remove(4, Len(Check_Str.Substring(4)))
+                    'LatDoubleS /= 1000
+                    'LatDoubleS /= 3600
                     Check_Str = Check_Str.Substring(6)
                     If (Check_Str.StartsWith("S")) Then
-                        TextBox_Latitude.Text = Math.Round(((LatDoubleD + LatDoubleM + LatDoubleS) * -1), 6).ToString
+                        'TextBox_Latitude.Text = Math.Round(((LatDoubleD + LatDoubleM + LatDoubleS) * -1), 6).ToString
+                        TextBox_Latitude.Text = Math.Round(((LatDoubleD + LatDoubleM) * -1), 6).ToString
                     Else
-                        TextBox_Latitude.Text = Math.Round((LatDoubleD + LatDoubleM + LatDoubleS), 6).ToString
+                        'TextBox_Latitude.Text = Math.Round((LatDoubleD + LatDoubleM + LatDoubleS), 6).ToString
+                        TextBox_Latitude.Text = Math.Round((LatDoubleD + LatDoubleM), 6).ToString
                     End If
                     Check_Str = Check_Str.Substring(2)
                     LonDoubleD = Check_Str.Remove(3, Len(Check_Str.Substring(3)))
                     Check_Str = Check_Str.Substring(3)
-                    LonDoubleM = Check_Str.Remove(2, Len(Check_Str.Substring(2)))
+                    LonDoubleM = Check_Str.Remove(7, Len(Check_Str.Substring(7)))
                     LonDoubleM /= 60
-                    Check_Str = Check_Str.Substring(3)
-                    LonDoubleS = Check_Str.Remove(5, Len(Check_Str.Substring(5)))
-                    LonDoubleS /= 1000
-                    LonDoubleS /= 3600
+                    'Check_Str = Check_Str.Substring(3)
+                    'LonDoubleS = Check_Str.Remove(5, Len(Check_Str.Substring(5)))
+                    'LonDoubleS /= 1000
+                    'LonDoubleS /= 3600
                     Check_Str = Check_Str.Substring(6)
                     If (Check_Str.StartsWith("W")) Then
-                        TextBox_Lontitude.Text = Math.Round(((LonDoubleD + LonDoubleM + LonDoubleS) * -1), 6).ToString
+                        'TextBox_Lontitude.Text = Math.Round(((LonDoubleD + LonDoubleM + LonDoubleS) * -1), 6).ToString
+                        TextBox_Lontitude.Text = Math.Round(((LonDoubleD + LonDoubleM) * -1), 6).ToString
                     Else
-                        TextBox_Lontitude.Text = Math.Round((LonDoubleD + LonDoubleM + LonDoubleS), 6).ToString
+                        'TextBox_Lontitude.Text = Math.Round((LonDoubleD + LonDoubleM + LonDoubleS), 6).ToString
+                        TextBox_Lontitude.Text = Math.Round((LonDoubleD + LonDoubleM), 6).ToString
                     End If
 
                 Catch ex As Exception
