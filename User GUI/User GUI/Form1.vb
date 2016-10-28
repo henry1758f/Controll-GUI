@@ -200,6 +200,7 @@ Public Class Form1
             SerialPort1.Write("0")
 
         Catch ex As Exception                           ' Serial Port didn't work!
+            MsgBox("ERROR! Connection Error" + vbCrLf + ex.Message, MsgBoxStyle.Critical, "DISCONNECTED TO DRIVER")
             ToolStripStatusLabel_DriverConnection(0)
             LabelNOW.Text = ""
             SerialPortCloseProcess()
@@ -371,10 +372,18 @@ Public Class Form1
         End If
         If LabelNOW.Text.Contains("$VEHI_TEMPOUT:") Then        ' Outside from Vehicle's Temperature Print
             Dim VehicleoutTempCheck As String
+            Dim TempOUT_Actually As Double
             VehicleoutTempCheck = LabelNOW.Text
             VehicleoutTempCheck = VehicleoutTempCheck.Remove(0, Len("$VEHI_TEMPOUT:"))
             VehicleoutTempCheck = VehicleoutTempCheck.Remove(VehicleoutTempCheck.IndexOf("$~"), 2)
-            TextBox_VehicleOUTtemp.Text = VehicleoutTempCheck
+            Try
+                TempOUT_Actually = VehicleoutTempCheck * 10
+                TempOUT_Actually = 4 - 3 + (TempOUT_Actually - 305) / 9.588235294
+            Catch ex As Exception
+                ErrorCounter += 1
+            End Try
+
+            TextBox_VehicleOUTtemp.Text = TempOUT_Actually
         End If
         If LabelNOW.Text.Contains("$VEHI_TEMPIN:") Then         ' Inside of Vehicle's Temperature print
             Dim VehicleTempCheck As String
@@ -877,18 +886,18 @@ Public Class Form1
         Else
 
         End If
-        If TextBox_VehicleTemp.Text IsNot vbNullString Then
-            Chart_Tempurature.Series("Temp_InsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_VehicleTemp.Text)
-            Chart_Tempurature.Series("Temp_InsideVehicle").ChartArea = "ChartArea1"
-            Chart_TemperatureBigger.Series("Temp_InsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_BuoyTemp.Text)
-            Chart_TemperatureBigger.Series("Temp_InsideVehicle").ChartArea = "ChartArea1"
-        Else
+        'If TextBox_VehicleTemp.Text IsNot vbNullString Then
+        '    Chart_Tempurature.Series("Temp_InsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_VehicleTemp.Text)
+        '    Chart_Tempurature.Series("Temp_InsideVehicle").ChartArea = "ChartArea1"
+        '    Chart_TemperatureBigger.Series("Temp_InsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_VehicleTemp.Text)
+        '    Chart_TemperatureBigger.Series("Temp_InsideVehicle").ChartArea = "ChartArea1"
+        'Else
 
-        End If
-        If TextBox_VehicleOUTtemp.Text IsNot vbNullString Then
+        'End If
+        If TextBox_VehicleOUTtemp.Text IsNot vbNullString And TextBox_VehicleOUTtemp.Text < 100 And TextBox_VehicleOUTtemp.Text > -100 Then
             Chart_Tempurature.Series("Temp_OutsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_VehicleOUTtemp.Text)
             Chart_Tempurature.Series("Temp_OutsideVehicle").ChartArea = "ChartArea1"
-            Chart_TemperatureBigger.Series("Temp_OutsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_BuoyTemp.Text)
+            Chart_TemperatureBigger.Series("Temp_OutsideVehicle").Points.AddXY(TempRecordingCounter, TextBox_VehicleOUTtemp.Text)
             Chart_TemperatureBigger.Series("Temp_OutsideVehicle").ChartArea = "ChartArea1"
         Else
 

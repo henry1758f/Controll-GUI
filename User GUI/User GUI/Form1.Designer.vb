@@ -24,14 +24,14 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series19 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series20 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series21 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series22 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series23 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series24 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.設定ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,6 +64,7 @@ Partial Class Form1
         Me.Button_BuoyForward = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label_VehicleFacing = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -115,7 +116,6 @@ Partial Class Form1
         Me.GroupBox_Video = New System.Windows.Forms.GroupBox()
         Me.Timer_TemperatureRecorder = New System.Windows.Forms.Timer(Me.components)
         Me.Chart_TemperatureBigger = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -453,6 +453,16 @@ Partial Class Form1
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Location"
         '
+        'Label17
+        '
+        Me.Label17.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(608, 31)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(27, 22)
+        Me.Label17.TabIndex = 18
+        Me.Label17.Text = "m"
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -461,6 +471,7 @@ Partial Class Form1
         Me.Label7.Size = New System.Drawing.Size(80, 44)
         Me.Label7.TabIndex = 17
         Me.Label7.Text = "Vehicle " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Facing"
+        Me.Label7.Visible = False
         '
         'Label_VehicleFacing
         '
@@ -471,6 +482,7 @@ Partial Class Form1
         Me.Label_VehicleFacing.Size = New System.Drawing.Size(45, 42)
         Me.Label_VehicleFacing.TabIndex = 15
         Me.Label_VehicleFacing.Text = "N"
+        Me.Label_VehicleFacing.Visible = False
         '
         'Label15
         '
@@ -481,6 +493,7 @@ Partial Class Form1
         Me.Label15.Size = New System.Drawing.Size(17, 18)
         Me.Label15.TabIndex = 16
         Me.Label15.Text = "o"
+        Me.Label15.Visible = False
         '
         'Label_VehicleFacingAngel
         '
@@ -492,6 +505,7 @@ Partial Class Form1
         Me.Label_VehicleFacingAngel.TabIndex = 14
         Me.Label_VehicleFacingAngel.Text = "000"
         Me.Label_VehicleFacingAngel.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label_VehicleFacingAngel.Visible = False
         '
         'Label4
         '
@@ -501,6 +515,7 @@ Partial Class Form1
         Me.Label4.Size = New System.Drawing.Size(118, 22)
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "Buoy Facing"
+        Me.Label4.Visible = False
         '
         'Button_mapZoomOUT
         '
@@ -533,6 +548,7 @@ Partial Class Form1
         Me.Label_BuoyFacing.Size = New System.Drawing.Size(45, 42)
         Me.Label_BuoyFacing.TabIndex = 9
         Me.Label_BuoyFacing.Text = "N"
+        Me.Label_BuoyFacing.Visible = False
         '
         'PictureBox3
         '
@@ -564,6 +580,7 @@ Partial Class Form1
         Me.Label13.Size = New System.Drawing.Size(17, 18)
         Me.Label13.TabIndex = 10
         Me.Label13.Text = "o"
+        Me.Label13.Visible = False
         '
         'PictureBox2
         '
@@ -593,7 +610,7 @@ Partial Class Form1
         Me.TextBox_Lontitude.Name = "TextBox_Lontitude"
         Me.TextBox_Lontitude.Size = New System.Drawing.Size(103, 27)
         Me.TextBox_Lontitude.TabIndex = 6
-        Me.TextBox_Lontitude.Text = "120.328509"
+        Me.TextBox_Lontitude.Text = "120.328768"
         '
         'TextBox_Latitude
         '
@@ -602,7 +619,7 @@ Partial Class Form1
         Me.TextBox_Latitude.Name = "TextBox_Latitude"
         Me.TextBox_Latitude.Size = New System.Drawing.Size(103, 27)
         Me.TextBox_Latitude.TabIndex = 5
-        Me.TextBox_Latitude.Text = "22.649419"
+        Me.TextBox_Latitude.Text = "22.647683"
         '
         'Label8
         '
@@ -644,6 +661,7 @@ Partial Class Form1
         Me.Label_BuoyFacingAngle.TabIndex = 8
         Me.Label_BuoyFacingAngle.Text = "000"
         Me.Label_BuoyFacingAngle.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label_BuoyFacingAngle.Visible = False
         '
         'GroupBox5
         '
@@ -690,26 +708,26 @@ Partial Class Form1
         Me.Chart_Tempurature.BackColor = System.Drawing.Color.Silver
         Me.Chart_Tempurature.BorderlineColor = System.Drawing.Color.Gainsboro
         Me.Chart_Tempurature.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
-        ChartArea7.AxisY.LineWidth = 2
-        ChartArea7.Name = "ChartArea1"
-        Me.Chart_Tempurature.ChartAreas.Add(ChartArea7)
+        ChartArea3.AxisY.LineWidth = 2
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart_Tempurature.ChartAreas.Add(ChartArea3)
         Me.Chart_Tempurature.Location = New System.Drawing.Point(239, 23)
         Me.Chart_Tempurature.Name = "Chart_Tempurature"
-        Series19.BorderWidth = 3
-        Series19.ChartArea = "ChartArea1"
-        Series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series19.Name = "Temp_OutsideVehicle"
-        Series20.BorderWidth = 3
-        Series20.ChartArea = "ChartArea1"
-        Series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series20.Name = "Temp_InsideVehicle"
-        Series21.BorderWidth = 3
-        Series21.ChartArea = "ChartArea1"
-        Series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series21.Name = "Temp_Buoy"
-        Me.Chart_Tempurature.Series.Add(Series19)
-        Me.Chart_Tempurature.Series.Add(Series20)
-        Me.Chart_Tempurature.Series.Add(Series21)
+        Series7.BorderWidth = 3
+        Series7.ChartArea = "ChartArea1"
+        Series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series7.Name = "Temp_OutsideVehicle"
+        Series8.BorderWidth = 3
+        Series8.ChartArea = "ChartArea1"
+        Series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series8.Name = "Temp_InsideVehicle"
+        Series9.BorderWidth = 3
+        Series9.ChartArea = "ChartArea1"
+        Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series9.Name = "Temp_Buoy"
+        Me.Chart_Tempurature.Series.Add(Series7)
+        Me.Chart_Tempurature.Series.Add(Series8)
+        Me.Chart_Tempurature.Series.Add(Series9)
         Me.Chart_Tempurature.Size = New System.Drawing.Size(391, 171)
         Me.Chart_Tempurature.TabIndex = 11
         Me.Chart_Tempurature.Text = "Chart1"
@@ -721,6 +739,7 @@ Partial Class Form1
         Me.TextBox_VehicleTemp.Name = "TextBox_VehicleTemp"
         Me.TextBox_VehicleTemp.Size = New System.Drawing.Size(42, 27)
         Me.TextBox_VehicleTemp.TabIndex = 6
+        Me.TextBox_VehicleTemp.Visible = False
         '
         'TextBox_VehicleOUTtemp
         '
@@ -742,6 +761,7 @@ Partial Class Form1
         Me.Label_VehicleTemp.TabIndex = 4
         Me.Label_VehicleTemp.Text = "Inside the Vehicle"
         Me.Label_VehicleTemp.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label_VehicleTemp.Visible = False
         '
         'Label6
         '
@@ -976,40 +996,30 @@ Partial Class Form1
         Me.Chart_TemperatureBigger.BackColor = System.Drawing.Color.Silver
         Me.Chart_TemperatureBigger.BorderlineColor = System.Drawing.Color.Gainsboro
         Me.Chart_TemperatureBigger.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash
-        ChartArea8.AxisY.LineWidth = 2
-        ChartArea8.Name = "ChartArea1"
-        Me.Chart_TemperatureBigger.ChartAreas.Add(ChartArea8)
+        ChartArea4.AxisY.LineWidth = 2
+        ChartArea4.Name = "ChartArea1"
+        Me.Chart_TemperatureBigger.ChartAreas.Add(ChartArea4)
         Me.Chart_TemperatureBigger.Location = New System.Drawing.Point(251, 324)
         Me.Chart_TemperatureBigger.Name = "Chart_TemperatureBigger"
-        Series22.BorderWidth = 3
-        Series22.ChartArea = "ChartArea1"
-        Series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series22.Name = "Temp_OutsideVehicle"
-        Series23.BorderWidth = 3
-        Series23.ChartArea = "ChartArea1"
-        Series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series23.Name = "Temp_InsideVehicle"
-        Series24.BorderWidth = 3
-        Series24.ChartArea = "ChartArea1"
-        Series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series24.Name = "Temp_Buoy"
-        Me.Chart_TemperatureBigger.Series.Add(Series22)
-        Me.Chart_TemperatureBigger.Series.Add(Series23)
-        Me.Chart_TemperatureBigger.Series.Add(Series24)
+        Series10.BorderWidth = 3
+        Series10.ChartArea = "ChartArea1"
+        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series10.Name = "Temp_OutsideVehicle"
+        Series11.BorderWidth = 3
+        Series11.ChartArea = "ChartArea1"
+        Series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series11.Name = "Temp_InsideVehicle"
+        Series12.BorderWidth = 3
+        Series12.ChartArea = "ChartArea1"
+        Series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series12.Name = "Temp_Buoy"
+        Me.Chart_TemperatureBigger.Series.Add(Series10)
+        Me.Chart_TemperatureBigger.Series.Add(Series11)
+        Me.Chart_TemperatureBigger.Series.Add(Series12)
         Me.Chart_TemperatureBigger.Size = New System.Drawing.Size(1202, 436)
         Me.Chart_TemperatureBigger.TabIndex = 12
         Me.Chart_TemperatureBigger.Text = "Chart1"
         Me.Chart_TemperatureBigger.Visible = False
-        '
-        'Label17
-        '
-        Me.Label17.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(608, 31)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(27, 22)
-        Me.Label17.TabIndex = 18
-        Me.Label17.Text = "m"
         '
         'Form1
         '
@@ -1032,7 +1042,7 @@ Partial Class Form1
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "SCH01 - v0.1.1"
+        Me.Text = "SCH01 - v1.0.0"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
